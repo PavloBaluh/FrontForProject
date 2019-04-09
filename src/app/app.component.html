@@ -1,19 +1,50 @@
-<div class="top-main">
-  <div class="top">
-    <ul class="ul">
-      <li>
-        <a routerLink="login">Головна</a>
-      </li>
-      <li class="li2-3">
-        <a routerLink="login">Ресторан</a>
-      </li>
-      <li class="li2-3">
-      <a routerLink="login">Новини</a>
-      </li>
-    </ul>
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col nav-left">
+        <div class="nav-left-top">
+          <div routerLink="basket" class="basket">
+            <img src="../assets/shopping-cart.png">
+            <p>Корзина ресторану</p>
+          </div>
+        </div>
+        <ul class="nav">
+          <li>
+            <a routerLink="/">Головна</a>
+          </li>
+          <li class="li2-3">
+            <a routerLink="/restaurant">Ресторан</a>
+          </li>
+          <li class="li2-3">
+          <a routerLink="">Акції</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col nav-logo">
+        <a id = "logo-wrap">
+          <img class="logo" src="../assets/logo-new.png">
+        </a>
+      </div>
+      <div class="col nav-right">
+        <div class="nav-right-top">
+          <div class="icons">
+            <a><img src="../assets/login%20(1).png"></a>
+            <a><img src="../assets/login%20(1).png"></a>
+          </div>
+          <h1 class="user"> Current User</h1>
+          <div class="user">
+            <img src="../assets/man_user.png">
+          </div>
+        </div>
+        <ul class="nav">
+          <li>Профіль</li>
+          <li class="li2-3">Профіль</li>
+          <li class="li2-3">Профіль</li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="top"></div>
-  <div class="top"></div>
 </div>
 
 <router-outlet></router-outlet>
+
