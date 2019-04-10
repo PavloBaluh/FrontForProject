@@ -12,7 +12,8 @@ import {CurentComponent} from './curent/curent.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'restaurant', component: RestorauntComponent},
-  {path: 'restaurant/:name', component: CurentComponent}
+  {path: 'restaurant/:name', component: CurentComponent},
+  {path: '', component: AppComponent}
 ];
 
 
