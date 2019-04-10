@@ -1,0 +1,35 @@
+.container{
+  padding: 50px 10%;
+  height: 422px;
+  position: relative;
+  display: flex;
+}
+
+.dish-img{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  position: relative;
+  width:  50%;
+  padding-right: 15px;
+  padding-left: 15px;
+
+}
+.content{
+  width:  50%;
+}
+img{
+  height: 100%;
+  width: 100%;
+}
+.content-header{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+}
+p{
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+}

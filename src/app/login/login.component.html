@@ -1,0 +1,11 @@
+<div class="login">
+<h1>Sign In Form</h1>
+<div id="wrapper">
+  <form #form = "ngForm" id="signin" autocomplete="off">
+    <input ngModel  type="text" id="user" name="user" placeholder="username" />
+    <input ngModel  type="password" id="pass" name="pass" placeholder="password" />
+    <button type="submit" (click)="sendData(form)">&#xf0da;</button>
+    <p>forgot your password? <a href="#">click here</a></p>
+  </form>
+</div>
+</div>

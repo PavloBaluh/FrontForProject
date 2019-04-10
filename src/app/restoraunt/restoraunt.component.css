@@ -1,0 +1,36 @@
+a{
+  color: black;
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items:stretch;
+  padding-top: 30px;
+  /*padding-left: 0;*/
+  /*margin-bottom: 0;*/
+}
+li{
+  flex-direction: column;
+}
+.logo {
+  height: 100px;
+  width: auto;
+}
+.img-container{
+
+}
+.dish-container{
+  cursor: pointer;
+}
+
+.dish{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
