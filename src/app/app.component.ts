@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Injectable, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MainService} from './Services/main.service';
 import {ActivatedRoute} from '@angular/router';
@@ -10,20 +10,26 @@ import * as jwt_decode from 'jwt-decode';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+@Injectable()
 export class AppComponent implements OnInit {
   user: User;
 
   constructor(private servise: MainService, private Activatedroute: ActivatedRoute) {
+    servise.changeEmitted$.subscribe(data => {
+      this.user = new User(data);
+    });
   }
 
 
   ngOnInit() {
     console.log(1);
-    let a: string = this.servise.getDecodedAccessToken();
-    console.log(a);
+    const a: User = this.servise.getDecodedAccessToken();
+    console.log(a + 'decode');
     if (a !== null) {
-      this.user = <User>a;
+      this.user = a;
     } else {
+      console.log('lellee');
       this.user = new User('Незареєстрований');
     }
   }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MainService} from '../Services/main.service';
 import {Router} from '@angular/router';
@@ -16,12 +16,11 @@ export class LoginComponent {
   }
 
   sendData(form) {
-    console.log('-3');
     this.service.login(form.value.user, form.value.pass).subscribe((res) => {
       localStorage.setItem('_key', res.headers.get('Authorization'));
-      console.log('-1');
+      this.service.emitChange('hhh');
+      this.router.navigate(['']);
     });
     console.log(0);
-    this.router.navigate(['']);
   }
 }

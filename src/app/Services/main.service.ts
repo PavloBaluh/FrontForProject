@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {Food} from '../Models/Food';
 import * as jwt_decode from 'jwt-decode';
+import {User} from '../Models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,14 @@ export class MainService {
   constructor(private http: HttpClient) {
   }
 
+  private emitChangeSource = new Subject<any>();
+  changeEmitted$ = this.emitChangeSource.asObservable();
 
-  getDecodedAccessToken(): string {
+  emitChange(name: string) {
+    this.emitChangeSource.next(name);
+  }
+
+  getDecodedAccessToken(): User {
     try {
       console.log(2);
       const key = localStorage.getItem('_key');
@@ -36,7 +43,7 @@ export class MainService {
   login(user, pass) {
     if (user !== null && pass !== null) {
       console.log('-2');
-      return this.http.post(this.url, JSON.stringify({username: user, password: pass}), {observe: 'response'})
+      return this.http.post(this.url, JSON.stringify({username: user, password: pass}), {observe: 'response'});
     }
   }
 

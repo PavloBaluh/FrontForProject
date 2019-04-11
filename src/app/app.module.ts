@@ -8,12 +8,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {RestorauntComponent} from './restoraunt/restoraunt.component';
 import {CurentComponent} from './curent/curent.component';
+import {MainComponent} from './main/main.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'restaurant', component: RestorauntComponent},
   {path: 'restaurant/:name', component: CurentComponent},
-  {path: '', component: AppComponent}
+  {path: '', component: MainComponent},
 ];
 
 
@@ -22,7 +23,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     RestorauntComponent,
-    CurentComponent
+    CurentComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
