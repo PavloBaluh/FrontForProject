@@ -13,24 +13,15 @@ import * as jwt_decode from 'jwt-decode';
 
 @Injectable()
 export class AppComponent implements OnInit {
-  user: User;
+  user: string;
 
   constructor(private servise: MainService, private Activatedroute: ActivatedRoute) {
     servise.changeEmitted$.subscribe(data => {
-      this.user = new User(data);
+      this.user = data;
     });
   }
 
 
   ngOnInit() {
-    console.log(1);
-    const a: User = this.servise.getDecodedAccessToken();
-    console.log(a + 'decode');
-    if (a !== null) {
-      this.user = a;
-    } else {
-      console.log('lellee');
-      this.user = new User('Незареєстрований');
-    }
   }
 }

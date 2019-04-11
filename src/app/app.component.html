@@ -29,9 +29,9 @@
         <div class="nav-right-top">
           <div class="icons">
             <a routerLink="login" title="Увійти"><img src="../assets/login%20(1).png"></a>
-            <a title="Зареєструватися"><img src="../assets/login%20(1).png"></a>
+            <a routerLink="register" title="Зареєструватися"><img src="../assets/login%20(1).png"></a>
           </div>
-          <h1  class="user">{{user.sub}}</h1>
+          <h1  class="user">{{user}}</h1>
           <div class="user">
             <img src="../assets/man_user.png">
           </div>
@@ -48,3 +48,14 @@
 
 <router-outlet></router-outlet>
 
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-footer-left">
+        <div class="footer-left">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

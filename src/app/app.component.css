@@ -113,7 +113,7 @@ h1{
  .li2-3{
    margin-left: 30px;
  }
-.logo-wrap{
+#logo-wrap{
   width: 100%;
   display: flex;
   justify-content: center;
@@ -124,6 +124,24 @@ h1{
   height: auto;
   cursor: pointer;
 }
+.footer{
+  background: #000;
+  padding: 30px 0;
+  position: relative;
+  z-index: 9;
+}
+.col-footer-left{
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.footer-left{
+  display: flex;
+  flex-direction: column;
+}
+
+
 @media (max-width: 1200px) and (min-width: 992px) {
   header, li, a {
     font-size: 16px;
@@ -144,5 +162,11 @@ h1{
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
+  }
+}
+@media (min-width: 768px) {
+  .col-footer-left {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
   }
 }

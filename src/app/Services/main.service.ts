@@ -21,7 +21,7 @@ export class MainService {
   changeEmitted$ = this.emitChangeSource.asObservable();
 
   emitChange(name: string) {
-    this.emitChangeSource.next(name);
+      this.emitChangeSource.next(name);
   }
 
   getDecodedAccessToken(): User {
