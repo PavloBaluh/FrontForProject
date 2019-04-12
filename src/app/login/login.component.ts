@@ -18,6 +18,7 @@ export class LoginComponent {
   }
 
   sendData(form) {
+    console.log(form);
     this.service.login(form.value.user, form.value.pass).subscribe((res) => {
       localStorage.setItem('_key', res.headers.get('Authorization'));
       const a: User = this.service.getDecodedAccessToken();

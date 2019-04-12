@@ -1,11 +1,21 @@
-<div class="login">
-<h1>Sign In Form</h1>
-<div id="wrapper">
-  <form #form = "ngForm" id="signin" autocomplete="off">
-    <input ngModel  type="text" id="user" name="user" placeholder="username" />
-    <input ngModel  type="password" id="pass" name="pass" placeholder="password" />
-    <button type="submit" (click)="sendData(form)">&#xf0da;</button>
-    <p>forgot your password? <a href="#">click here</a></p>
-  </form>
+<div class="register">
+  <div class="user">
+    <header class="user__header">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+      <h1 class="user__title">A lightweight and simple sign-up form</h1>
+    </header>
+
+    <form #form = "ngForm" class="form">
+      <div class="form__group">
+        <input name="user" ngModel type="text" placeholder="Username" class="form__input" />
+      </div>
+
+      <div class="form__group">
+        <input name="pass" ngModel type="password" placeholder="Password" class="form__input" />
+      </div>
+
+      <button class="btn" type="button" (click)="sendData(form)">Увійти</button>
+    </form>
+  </div>
 </div>
-</div>
+

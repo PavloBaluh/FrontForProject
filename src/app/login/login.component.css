@@ -1,105 +1,175 @@
-.login{
-  margin-top: 120px;
-  background: rgb(52, 56, 61);
+.register{
+  min-height: calc(100vh - 200px);
+  width: 100%;
+  position: relative;
+  background: #fa4251;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 140px;
+  font-family: Roboto, serif;
+  font-size: 14px;
+  background-size: 200% 100% !important;
+  -webkit-animation: move 10s ease infinite;
+  animation: move 10s ease infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+  height: 100vh;
+
 }
 
-*{
-  font-family: 'Open Sans', 'sans-serif', 'FontAwesome';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1{
-  color: rgb(255, 255, 255);
-  margin: 20px auto 0;
-  width: 200px;
+
+
+.user {
+  width: 90%;
+  max-width: 340px;
+  margin: 10vh auto;
+}
+
+.user__header {
   text-align: center;
-}
-#wrapper{
-  position: absolute;
-  width: 320px;
-  left: 50%;
-  margin-left: -160px;
-  top: 50%;
-  margin-top: -75px;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 500px, 0);
+  transform: translate3d(0, 500px, 0);
+  -webkit-animation: arrive 500ms ease-in-out 0.7s forwards;
+  animation: arrive 500ms ease-in-out 0.7s forwards;
 }
 
-/* === Sign in Form === */
-#signin {
-  height: 90px;
-  width: 300px;
-  border-radius: 8px;
-  position: relative;
+.user__title {
+  font-size: 14px;
+  margin-bottom: -10px;
+  font-weight: 500;
+  color: white;
 }
-#signin::before {
+
+.form {
+  margin-top: 40px;
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 500px, 0);
+  transform: translate3d(0, 500px, 0);
+  -webkit-animation: arrive 500ms ease-in-out 0.9s forwards;
+  animation: arrive 500ms ease-in-out 0.9s forwards;
+}
+
+.form--no {
+  -webkit-animation: NO 1s ease-in-out;
+  animation: NO 1s ease-in-out;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.form__input {
   display: block;
-  position: relative;
-  height: 2px;
-  background: rgb(52, 56, 61);
-  content: '';
-  top: 44px;
-  margin-left: 20px;
-  z-index: 1;
-}
-#signin input:first-of-type{
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-}
-#signin input:last-of-type{
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-#signin  input[type="text"], #signin  input[type="password"], #signin button[type="submit"]{
-  background: rgb(28, 30, 33);
-  box-shadow: inset -100px -100px 0 rgb(28, 30, 33); /*Prevent yellow autofill color*/
-  color: rgb(52, 56, 61);
-}
-#signin  input[type="text"], #signin  input[type="password"]{
-  position: relative;
-  display: block;
-  width: 280px;
-  height: 45px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  -webkit-appearance: none;
   border: 0;
   outline: 0;
-  top: -2px;
-  padding: 0 0 0 20px;
-  font-weight: 700;
+  transition: 0.3s;
 }
-#signin  input[type="text"]:focus, #signin  input[type="password"]:focus{
-  color: rgb(255, 255, 255);
+.form__input:focus {
+  background: #f7f7f7;
 }
-#signin button[type="submit"]{
+
+.btn {
   display: block;
-  position: absolute;
-  width: 52px;
-  height: 52px;
-  color: rgb(52, 56, 61);
-  border-radius: 50px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  -webkit-appearance: none;
   outline: 0;
-  z-index: 2;
-  top: 19px;
-  right: -24px;
-  border: 6px solid rgb(52, 56, 61);
-  font-size: 25px;
-  text-indent: 0px;
-  padding-left: 9px;
-  padding-bottom: 3px;
-  text-align: center;
+  border: 0;
+  color: white;
+  background: #ABA194;
+  transition: 0.3s;
 }
-#signin button[type="submit"]:hover{
-  color: rgb(0, 126, 165);
-  text-shadow: 0 0 10px rgb(0, 126, 165);
-  cursor: pointer;
+.btn:hover {
+  background: #a09486;
 }
-#signin p {
-  color: rgb(79, 85, 97);
-  padding: 0 20px;
-  font-weight: 700;
-  font-size: 12px;
-  margin: 5px 0 0 0;
+
+@-webkit-keyframes NO {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
 }
-#signin p > a{
-  color: rgb(111, 119, 135);
-  text-decoration: none;
+
+@keyframes NO {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
 }
-#signin p > a:hover{
-  border-bottom: 1px solid;
+@-webkit-keyframes arrive {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes arrive {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
