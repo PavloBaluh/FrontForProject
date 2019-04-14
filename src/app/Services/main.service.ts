@@ -9,10 +9,7 @@ import {User} from '../Models/User';
   providedIn: 'root'
 })
 export class MainService {
-  url = 'http://localhost:8080/login';
-  url2 = 'http://localhost:8080/restaurant';
-  url3 = 'http://localhost:8080/getCurrentUser';
-
+  apiUrl = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) {
   }
@@ -21,7 +18,7 @@ export class MainService {
   changeEmitted$ = this.emitChangeSource.asObservable();
 
   emitChange(name: string) {
-      this.emitChangeSource.next(name);
+    this.emitChangeSource.next(name);
   }
 
   getDecodedAccessToken(): User {
@@ -40,17 +37,23 @@ export class MainService {
   //   return this.http.get(this.url3, {responseType: 'text', headers});
   // }
 
+
+  register(user: string, pass: string, mail: string) {
+    console.log('hello');
+    const headers = new HttpHeaders({username: user, password: pass, email: mail});
+    return this.http.post(this.apiUrl + 'register', {}, {headers, responseType: 'text'});
+  }
+
   login(user, pass) {
     if (user !== null && pass !== null) {
-      console.log('-2');
-      return this.http.post(this.url, JSON.stringify({username: user, password: pass}), {observe: 'response'});
+      return this.http.post(this.apiUrl + 'login', JSON.stringify({username: user, password: pass}), {observe: 'response'});
     }
   }
 
   getAll(): Observable<Food[]> {
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     console.log(headers.get('Authorization') + 'kfjpfepjpefpj[gef');
-    return this.http.get<Food[]>(this.url2, {
+    return this.http.get<Food[]>(this.apiUrl + 'restaurant', {
       headers,
     });
   }

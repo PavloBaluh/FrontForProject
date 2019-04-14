@@ -120,8 +120,8 @@ h1{
   align-items: center;
 }
 .logo{
-  width: 80%;
-  height: auto;
+  width: 240px;
+  height: 80px;
   cursor: pointer;
 }
 .footer{
