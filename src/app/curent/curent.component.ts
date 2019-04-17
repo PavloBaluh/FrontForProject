@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Food} from '../Models/Food';
+import {MainService} from '../Services/main.service';
 
 @Component({
   selector: 'app-curent',
@@ -12,7 +13,7 @@ export class CurentComponent implements OnInit {
   food: Food;
   Img: any = '../../assets/';
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private service: MainService) {
   }
 
   ngOnInit() {
@@ -23,6 +24,13 @@ export class CurentComponent implements OnInit {
 
   findSrc(fileName): string {
     return this.Img + fileName;
+  }
+
+  Inbasket(food: Food) {
+    this.service.addFood(food).subscribe((res) => {
+      console.log(res);
+    });
+    console.log('ok');
   }
 
 }

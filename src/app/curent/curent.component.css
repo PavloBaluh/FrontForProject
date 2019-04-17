@@ -3,6 +3,7 @@
   height: 422px;
   position: relative;
   display: flex;
+  margin-top: 120px;
 }
 
 .dish-img{

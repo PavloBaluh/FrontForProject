@@ -10,6 +10,7 @@ import {RestorauntComponent} from './restoraunt/restoraunt.component';
 import {CurentComponent} from './curent/curent.component';
 import {MainComponent} from './main/main.component';
 import {RegisterComponent} from './register/register.component';
+import {BasketComponent} from './basket/basket.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'restaurant', component: RestorauntComponent},
   {path: 'restaurant/:name', component: CurentComponent},
   {path: '', component: MainComponent},
+  {path: 'basket', component: BasketComponent}
 ];
 
 
@@ -27,7 +29,8 @@ const routes: Routes = [
     RestorauntComponent,
     CurentComponent,
     MainComponent,
-    RegisterComponent
+    RegisterComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,

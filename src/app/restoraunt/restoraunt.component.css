@@ -13,6 +13,7 @@ ul{
 }
 li{
   flex-direction: column;
+  width: 25%;
 }
 .logo {
   height: 100px;
@@ -23,6 +24,7 @@ li{
 }
 .dish-container{
   cursor: pointer;
+  margin-top: 120px;
 }
 
 .dish{
@@ -33,4 +35,11 @@ li{
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
+  margin-bottom: 20px;
+}
+@media (min-width: 992px) {
+  .dish {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
 }
