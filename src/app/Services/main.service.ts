@@ -24,7 +24,6 @@ export class MainService {
 
   getDecodedAccessToken(): User {
     try {
-      console.log(2);
       const key = localStorage.getItem('_key');
       console.log('key' + key);
       return jwt_decode(key);

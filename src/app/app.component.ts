@@ -15,13 +15,18 @@ import * as jwt_decode from 'jwt-decode';
 export class AppComponent implements OnInit {
   user: string;
 
-  constructor(private servise: MainService, private Activatedroute: ActivatedRoute) {
-    servise.changeEmitted$.subscribe(data => {
+  constructor(private service: MainService, private Activatedroute: ActivatedRoute) {
+    service.changeEmitted$.subscribe(data => {
       this.user = data;
     });
   }
 
-
   ngOnInit() {
+    const a: User = this.service.getDecodedAccessToken();
+    if (a !== null) {
+      this.user = a.sub;
+    } else {
+      this.user = ('Незареєстрований');
+    }
   }
 }
