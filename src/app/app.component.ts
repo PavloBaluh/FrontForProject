@@ -29,4 +29,9 @@ export class AppComponent implements OnInit {
       this.user = ('Незареєстрований');
     }
   }
+
+  logout() {
+    localStorage.clear();
+    this.ngOnInit();
+  }
 }
