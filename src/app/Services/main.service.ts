@@ -71,6 +71,12 @@ export class MainService {
     return this.http.get<Food[]>(this.apiUrl + 'basket', {headers});
   }
 
+  updateUserInfo(obj) {
+    console.log( JSON.stringify(obj));
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.post(this.apiUrl + 'updateUserInfo', JSON.stringify(obj), {headers});
+  }
+
 // getInfo() {
 //   const headers = new HttpHeaders({'Authorization': localStorage.getItem('_token')});
 //   this.http.get('http://localhost:8080/home', {

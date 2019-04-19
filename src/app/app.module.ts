@@ -11,6 +11,7 @@ import {CurentComponent} from './curent/curent.component';
 import {MainComponent} from './main/main.component';
 import {RegisterComponent} from './register/register.component';
 import {BasketComponent} from './basket/basket.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'restaurant', component: RestorauntComponent},
   {path: 'restaurant/:name', component: CurentComponent},
   {path: '', component: MainComponent},
-  {path: 'basket', component: BasketComponent}
+  {path: 'basket', component: BasketComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 
@@ -30,7 +32,8 @@ const routes: Routes = [
     CurentComponent,
     MainComponent,
     RegisterComponent,
-    BasketComponent
+    BasketComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
