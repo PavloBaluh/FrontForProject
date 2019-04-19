@@ -1,0 +1,24 @@
+<div class="register">
+  <div class="user">
+    <header class="user__header">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+      <h1 class="user__title">{{header}}</h1>
+    </header>
+
+    <form #form = "ngForm"  class="form">
+      <div class="form__group">
+        <input ngModel name="user" type="text" placeholder="Username" class="form__input" />
+      </div>
+
+      <div class="form__group">
+        <input ngModel type="email" name="email" placeholder="Email" class="form__input" />
+      </div>
+
+      <div class="form__group">
+        <input ngModel name="pass" type="password" placeholder="Password" class="form__input" />
+      </div>
+
+      <button class="btn" type="button" (click)="getForm(form)">Register</button>
+    </form>
+  </div>
+</div>

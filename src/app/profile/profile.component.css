@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.block{
+  margin-top: 180px;
+}
+#form1 {
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+label, p {
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  width: 100px;
+}
+p {
+  width: 250px;
+}
+#form .pic {
+  width: 100px;
+  height: 30px;
+}
+
+#number {
+  position: relative;
+  top: -20px;
+}
+.menu, .picinput {
+  width: 150px;
+}
+.menu:invalid + span:after {
+  content: '\2718';
+  color: red;
+  margin-left: 7px;
+}
+.menu:valid + span:after {
+  content: '\2714';
+  color: green;
+  margin-left: 7px;
+}
+.picinput:focus + span:after {
+  content: '\2718  Неправильно число';
+  font-size: 14px;
+  color: red;
+  position: relative;
+  top: -20px;
+  margin-left: 7px;
+}
+.picinput:valid + span:after {
+  content: '\2714';
+  color: green;
+  position: relative;
+  top: -20px;
+  margin-left: 7px;
+}
+.button {
+  margin-top: 130px;
+  width: 100%;
+  text-align: center;
+  background: lightgrey;
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+.qwe {
+  border: 1px solid green;
+  width: 180px;
+  border-radius: 50px;
+  background: linear-gradient(to bottom, green, lightgreen, green);
+  line-height: 2em;
+  margin: 0;
+  font-weight: normal;
+}
+#button {
+  display: none;
+}
+#form1 label:nth-of-type(4n) {
+  margin-bottom: 30px;
+}
