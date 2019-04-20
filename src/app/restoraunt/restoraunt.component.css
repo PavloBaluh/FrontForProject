@@ -14,6 +14,20 @@ ul{
 li{
   flex-direction: column;
   width: 25%;
+  margin-bottom: 20px;
+  position: relative;
+
+}
+
+h1 {
+  font-size: 33px;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
 }
 .logo {
   height: 100px;
@@ -25,21 +39,113 @@ li{
 .dish-container{
   cursor: pointer;
   margin-top: 120px;
-}
-
-.dish{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  display: table;
+}
+
+.row{
+  margin-right: -15px;
+  margin-left: -15px;
+}
+#content{
+  min-height: 600px;
+}
+
+.col{
+  position: relative;
+  min-height: 1px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.dish {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: auto;
+  min-height: initial;
+  margin-bottom: 50px;
+}
+  .dish-main{
+    margin: 0;
+    padding: 0;
+  }
+.dish-main-row{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.header-dish{
+  height: 70px;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+.img-container{
+  display: flex;
+  justify-content: center;
 }
 @media (min-width: 992px) {
-  .dish {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+  .dish-container {
+    width: 970px;
   }
 }
+  @media (min-width: 768px) {
+    .dish-container {
+      width: 750px;
+    }
+  }
+@media (max-width: 767px){
+  .row {
+    margin-right: -10px;
+    margin-left: -10px;
+  }}
+@media (min-width: 768px){
+  .col{
+    float: left;
+  }
+}
+@media (min-width: 768px){
+  .col {
+    width: 100%;
+  }}
+
+
+@media (min-width: 768px){
+  .col-2 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }}
+@media (min-width: 992px){
+  .col-2 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }}
+@media (max-width: 768px){
+  .col-2 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }}
+@media (min-width: 992px){
+  .main-container {
+    max-width: 960px;
+  }}
+@media (min-width: 768px) {
+  .main-container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 576px){
+.container {
+  max-width: 540px;
+}}
