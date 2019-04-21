@@ -30,7 +30,6 @@ export class CurentComponent implements OnInit {
     this.service.addFood(food).subscribe((res) => {
       console.log(res);
     });
-    console.log('ok');
   }
 
 }

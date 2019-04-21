@@ -58,10 +58,12 @@ export class MainService {
     });
   }
 
-  addFood(food: Food) {
+  addFood(food: Food, quantity: number) {
     const headers = new HttpHeaders({
       Authorization: localStorage.getItem('_key'),
-      item: food.id.toString()
+      item: food.id.toString(),
+      quantity: quantity.toString()
+
     });
     return this.http.post(this.apiUrl + 'addFood', {}, {headers});
   }
@@ -72,7 +74,7 @@ export class MainService {
   }
 
   updateUserInfo(obj) {
-    console.log( JSON.stringify(obj));
+    console.log(JSON.stringify(obj));
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     return this.http.post(this.apiUrl + 'updateUserInfo', JSON.stringify(obj), {headers});
   }

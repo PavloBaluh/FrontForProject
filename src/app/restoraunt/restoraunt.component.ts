@@ -10,6 +10,7 @@ import {HttpHeaders} from '@angular/common/http';
 })
 export class RestorauntComponent implements OnInit {
   foods: Food[] = [];
+  quantity = 1;
 
 
   Img: any = '../../assets/';
@@ -27,4 +28,24 @@ export class RestorauntComponent implements OnInit {
   findSrc(fileName): string {
     return this.Img + fileName;
   }
+
+  Inbasket(food: Food) {
+    this.service.addFood(food).subscribe((res) => {
+      console.log(res);
+    });
+  }
+
+  change_quantity(x: boolean) {
+    if (x === true) {
+      this.quantity--;
+    }
+    if (x === false) {
+      this.quantity++;
+    }
+    if (this.quantity < 1) {
+      this.quantity = 1;
+    }
+  }
+
 }
+

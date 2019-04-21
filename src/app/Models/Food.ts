@@ -6,7 +6,8 @@ export class Food {
     public weight: number = null,
     public price: number = null,
     public description: string,
-    public picture: string
-  ) {
-  }
+    public picture: string,
+
+) {
+}
 }

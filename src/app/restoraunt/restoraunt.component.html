@@ -13,6 +13,30 @@
           <div  class="img-container">
               <img class="logo" [routerLink]="food.name"  [queryParams]="food" [alt]="food.picture" [src]="findSrc(food.picture)">
           </div>
+          <div class="order-container">
+            <div class="f1">
+              <div class="price-box">
+                {{food.price}}
+                <span class="grn">₴</span>
+              </div>
+            </div>
+            <div class="price-box-control">
+              <div class="item-quantity">
+                <div class="item-quantity-minus" (click)="change_quantity(true)">-</div>
+                <input  class="item-quantity-input" type="text" [value]="quantity">
+                <div class="item-quantity-minus" (click)="change_quantity(false)">+</div>
+              </div>
+            </div>
+            <div class="basket-box">
+              <div class="basket">
+                <a (click)="Inbasket(food)">
+                <span class="buy">
+                  В корзину
+                </span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

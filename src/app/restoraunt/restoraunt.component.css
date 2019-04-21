@@ -2,6 +2,7 @@ a{
   color: black;
   text-decoration: none;
 }
+input {outline:none;}
 ul{
   list-style: none;
   display: flex;
@@ -62,6 +63,7 @@ h1 {
   padding-left: 5px;
 }
 .dish {
+  border: 1px solid;
   padding-top: 0;
   padding-bottom: 0;
   height: auto;
@@ -69,7 +71,7 @@ h1 {
   margin-bottom: 50px;
 }
   .dish-main{
-    margin: 0;
+    margin: 0 50px 0 0;
     padding: 0;
   }
 .dish-main-row{
@@ -88,13 +90,106 @@ h1 {
   justify-content: center;
   text-align: center;
 }
+.order-container{
+  color: #333;
+  font-size: 17px;
+  font-weight: 400;
+  background: #fff;
+  font-family: Tahoma, serif;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+}
+.f1{
+  width: 22%;
+  float: left;
+}
+.price-box{
+  margin-top: 19px;
+  font-size: 17px;
+  font-weight: 400;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+}
+.price-box-control{
+  float: right;
+  width: 78%;
+}
+.item-quantity{
+  margin: 8px 30px 0 40px;
+  text-align: center;
+  width: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.basket-box{
+  float: right;
+  box-sizing: border-box;
+}
+.basket{
+  margin-top: 19px;
+}
+.buy{
+  top: 15px;
+  left: 0px;
+  padding: 5px 10px;
+  white-space: nowrap;
+  text-align: center;
+  background: #000;
+  color: #FFF;
+  font-size: 12px;
+  line-height: 14px;
+  cursor: pointer;
+}
+.item-quantity-minus{
+  left: -20px;
+  font-size: 40px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0);
+  text-decoration: none;
+  line-height: 37px;
+  z-index: 15;
+  top: 0;
+  width: 23px;
+  font-weight: 200;
+  height: 40px;
+  text-align: center;
+  border: 0px solid #ededed;
+  color: #000;
+}
+.item-quantity-minus:hover{
+  color: gray;
+}
+.item-quantity-input{
+  display: inline-block;
+  margin-top: 5px;
+  padding: 0px;
+  text-align: center;
+  z-index: 10;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #000000;
+  color: #333;
+  font-weight: 400;
+  border-radius: 50%;
+  font-size: 20px;
+}
+.grn{
+  margin-top: 0px;
+  font-size: 17px;
+  font-weight: 400;
 
-
-
+}
 .img-container{
   display: flex;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
+
 @media (min-width: 992px) {
   .dish-container {
     width: 970px;
@@ -102,7 +197,7 @@ h1 {
 }
   @media (min-width: 768px) {
     .dish-container {
-      width: 750px;
+      width: 1000px;
     }
   }
 @media (max-width: 767px){
