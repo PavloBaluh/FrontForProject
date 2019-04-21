@@ -7,7 +7,7 @@ export class Food {
     public price: number = null,
     public description: string,
     public picture: string,
-
-) {
-}
+    public quantity: number = null,
+  ) {
+  }
 }

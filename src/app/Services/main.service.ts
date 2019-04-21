@@ -58,11 +58,11 @@ export class MainService {
     });
   }
 
-  addFood(food: Food, quantity: number) {
+  addFood(food: Food) {
     const headers = new HttpHeaders({
       Authorization: localStorage.getItem('_key'),
       item: food.id.toString(),
-      quantity: quantity.toString()
+      quantity: food.quantity.toString()
 
     });
     return this.http.post(this.apiUrl + 'addFood', {}, {headers});

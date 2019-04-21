@@ -10,7 +10,6 @@ import {HttpHeaders} from '@angular/common/http';
 })
 export class RestorauntComponent implements OnInit {
   foods: Food[] = [];
-  quantity = 1;
 
 
   Img: any = '../../assets/';
@@ -20,6 +19,9 @@ export class RestorauntComponent implements OnInit {
 
   ngOnInit() {
     this.service.getAll().subscribe((res) => {
+      for (const food of res) {
+        food.quantity = 1;
+      }
       this.foods = res;
       console.log(res);
     });
@@ -35,15 +37,25 @@ export class RestorauntComponent implements OnInit {
     });
   }
 
-  change_quantity(x: boolean) {
+  change_quantity(x: boolean, food: Food) {
     if (x === true) {
-      this.quantity--;
+      this.foods.forEach((item) => {
+        if (item.id === food.id) {
+          item.quantity--;
+          if (item.quantity < 1) {
+            item.quantity = 1;
+          }
+        }
+      });
     }
     if (x === false) {
-      this.quantity++;
-    }
-    if (this.quantity < 1) {
-      this.quantity = 1;
+      {
+        this.foods.forEach((item) => {
+          if (item.id === food.id) {
+            item.quantity++;
+          }
+        });
+      }
     }
   }
 

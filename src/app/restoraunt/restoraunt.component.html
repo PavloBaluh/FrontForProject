@@ -11,7 +11,7 @@
               <a [routerLink] = "food.name" [queryParams]="food">{{food.name}}</a>
           </div>
           <div  class="img-container">
-              <img class="logo" [routerLink]="food.name"  [queryParams]="food" [alt]="food.picture" [src]="findSrc(food.picture)">
+              <img class="logo" [routerLink]="food.name"  [queryParams]="food" [alt]="food.picture"  [src]="findSrc(food.picture)">
           </div>
           <div class="order-container">
             <div class="f1">
@@ -22,9 +22,9 @@
             </div>
             <div class="price-box-control">
               <div class="item-quantity">
-                <div class="item-quantity-minus" (click)="change_quantity(true)">-</div>
-                <input  class="item-quantity-input" type="text" [value]="quantity">
-                <div class="item-quantity-minus" (click)="change_quantity(false)">+</div>
+                <div class="item-quantity-minus" (click)="change_quantity(true,food)">-</div>
+                <input  class="item-quantity-input" type="text" [value]="food.quantity">
+                <div class="item-quantity-minus" (click)="change_quantity(false,food)">+</div>
               </div>
             </div>
             <div class="basket-box">
