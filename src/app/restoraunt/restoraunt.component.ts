@@ -32,6 +32,7 @@ export class RestorauntComponent implements OnInit {
   }
 
   Inbasket(food: Food) {
+    console.log(food);
     this.service.addFood(food).subscribe((res) => {
       console.log(res);
     });

@@ -43,7 +43,7 @@ p{
   margin-bottom: 0;
   display: block;
 }
-.price{
+.price .quantity .sum{
   display: flex;
   align-items: center;
   justify-content: center;

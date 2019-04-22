@@ -68,6 +68,15 @@ export class MainService {
     return this.http.post(this.apiUrl + 'addFood', {}, {headers});
   }
 
+  deleteFood(food: Food) {
+    const headers = new HttpHeaders({
+      Authorization: localStorage.getItem('_key'),
+      item: food.id.toString()
+    });
+    console.log('hello');
+    return this.http.delete(this.apiUrl + 'deleteFood', {headers});
+  }
+
   getBasket(): Observable<Food[]> {
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     return this.http.get<Food[]>(this.apiUrl + 'basket', {headers});
