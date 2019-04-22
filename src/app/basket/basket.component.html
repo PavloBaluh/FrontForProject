@@ -1,14 +1,45 @@
-<div class="dish-container">
-  <ul>
-    <li *ngFor="let food of foods">
-      <div class="dish">
-        <div class="header-dish">
-          <a [routerLink] = "food.name" [queryParams]="food">{{food.name}}</a>
-        </div>
-        <div  class="img-container">
-          <img class="logo" [routerLink]="food.name"  [queryParams]="food" [alt]="food.picture" [src]="findSrc(food.picture)">
+<div class="dish-container section">
+  <div class="order-title-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="order-list-title col-md-12">
+          <p>Товар</p>
+          <p>Ціна</p>
+          <p>Кількість</p>
+          <p>Разом</p>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
+    </div>
+
+  <div *ngFor="let food of foods" class="order" >
+    <div class="container">
+      <div class="row row-secound">
+        <div class="order-list col-md-12">
+          <div class="name">
+            <div class="cancel">X</div>
+            <img class="logo" [alt]="food.picture" [src]="findSrc(food.picture)">
+            <div class="dish-name">
+              <p class="food-name">{{food.name}}</p>
+            </div>
+          </div>
+          <div class="price">
+            <p>{{food.price}}</p>
+          </div>
+  <!--<ul>-->
+    <!--<li *ngFor="let food of foods">-->
+      <!--<div class="dish">-->
+        <!--<div class="header-dish">-->
+          <!--<a [routerLink] = "food.name" [queryParams]="food">{{food.name}}</a>-->
+        <!--</div>-->
+        <!--<div  class="img-container">-->
+          <!--<img class="logo" [routerLink]="food.name"  [queryParams]="food" [alt]="food.picture" [src]="findSrc(food.picture)">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</li>-->
+  <!--</ul>-->
+        </div>
+      </div>
+    </div>
+</div>
 </div>
