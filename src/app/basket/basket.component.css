@@ -109,6 +109,47 @@ p{
   width: 100%;
   align-items: center;
 }
+.price-sum{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px 0;
+  width: 100%;
+}
+.sum-text{
+  display: block;
+  font-size: 24px;
+  margin-right: 5px;
+  color: black;
+}
+.buy-link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 100%;
+}
+.submit-btn {
+  background: #88AB31;
+  font-size: 21px;
+  padding: 10px 25px;
+  border-radius: 90px;
+  color: #fff;
+  transition: .3s;
+  border: none;
+  height: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 10px;
+}
+.submit-btn:disabled {
+  background: #88AB31;
+  cursor: not-allowed;
+  opacity: .7;
+}
 @media (max-width: 992px) {
   .dish-container {
     margin-top: 85px;
@@ -148,6 +189,11 @@ p{
     flex: 0 0 100%;
     max-width: 100%;
   }}
+@media (min-width: 576px){
+  .col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }}
 @media (min-width: 992px){
   .container {
     max-width: 960px;
@@ -160,4 +206,23 @@ p{
 @media (max-width: 992px){
   .img {
     max-width: 150px
+  }}
+@media (min-width: 768px){
+  .offset-md-3 {
+    margin-left: 25%;
+  }}
+@media (min-width: 768px){
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }}
+@media (min-width: 576px){
+  .col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }}
+@media (max-width: 767px){
+  .oder .buy-link {
+    justify-content: center;
+    margin-top: 30px;
   }}

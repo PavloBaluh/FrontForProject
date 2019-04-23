@@ -189,6 +189,101 @@ h1 {
   position: relative;
   overflow: hidden;
 }
+.stckedcont {
+  z-index: 9;
+  margin-top: -20px;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.secondmenu {
+  position: relative;
+}
+.container1 {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.secondmenu i {
+  margin-right: 14px;
+  margin-bottom: 7px;
+}
+
+.secondmenu li:hover{
+  background-color: #E2E9DD;
+}
+.secondmenu:before {
+  content: '';
+  max-width: 1280px;
+  height: 100%;
+  position: absolute;
+  left: -9999px;
+  right: -9999px;
+  top: 0;
+  border-top: 1px solid #E2E4E1;
+  background: #EFF2ED;
+  margin: 0 auto;
+}
+.secondmenu li {
+  cursor: pointer;
+  color: #000;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  min-width: 100px;
+  text-decoration: none;
+}
+.secondmenu ul {
+  display: table;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  padding: 0;
+}
+
+
+@media (min-width: 996px){
+  .container1 {
+    width: 996px;
+  }}
+
+  @media (min-width: 1200px){
+    .container1 {
+      width: 1170px;
+    }}
+    @media (min-width: 992px){
+      .container1 {
+        width: 970px;
+      }}
+      @media (min-width: 768px){
+        .container1 {
+          width: 750px;
+        }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 992px) {
   .dish-container {

@@ -87,6 +87,8 @@
 }
 .user{
   margin-left: 30px;
+  font-size: 20px;color: snow;
+  text-align: end;
 }
 p, li, a {
   font-family: 'Source Sans Pro', sans-serif;
@@ -108,9 +110,6 @@ img{
   text-transform: uppercase;
    cursor: pointer;
    text-decoration: none
-}
-h1{
-
 }
  .li2-3{
    margin-left: 30px;

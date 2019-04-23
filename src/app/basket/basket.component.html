@@ -32,20 +32,29 @@
           <div class="sum">
             <p>{{food.quantity*food.price}}</p>
           </div>
-  <!--<ul>-->
-    <!--<li *ngFor="let food of foods">-->
-      <!--<div class="dish">-->
-        <!--<div class="header-dish">-->
-          <!--<a [routerLink] = "food.name" [queryParams]="food">{{food.name}}</a>-->
-        <!--</div>-->
-        <!--<div  class="img-container">-->
-          <!--<img class="logo" [routerLink]="food.name"  [queryParams]="food" [alt]="food.picture" [src]="findSrc(food.picture)">-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</li>-->
-  <!--</ul>-->
+
         </div>
       </div>
     </div>
 </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12  offset-md-3 col-md-6">
+      <div class="price-sum price">
+        <span class="sum-text">Загальна сума:</span>
+        <p style="width:auto; font-size: 24px; color: black">1221</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class=" col-md-12 offset-md-3 col-md-6  ">
+      <div class="buy-link">
+        <button  class="submit-btn" type="submit"  disabled >Оформити замовлення </button>
+        </div>
+    </div>
+  </div>
 </div>

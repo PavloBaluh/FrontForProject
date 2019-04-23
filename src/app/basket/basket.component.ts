@@ -10,6 +10,7 @@ import {Food} from '../Models/Food';
 export class BasketComponent implements OnInit {
   foods: Food[];
   Img: any = '../../assets/';
+  isAnable: 'disabled';
 
   constructor(private  service: MainService) {
   }
