@@ -9,8 +9,9 @@ import {Food} from '../Models/Food';
 })
 export class BasketComponent implements OnInit {
   foods: Food[];
+  isdis = false;
+  total = 0;
   Img: any = '../../assets/';
-  isAnable: 'disabled';
 
   constructor(private  service: MainService) {
   }
@@ -18,6 +19,7 @@ export class BasketComponent implements OnInit {
   deleteFromBasket(food) {
     this.foods.splice(this.foods.indexOf(food), 1);
     this.service.deleteFood(food).subscribe((res) => {
+      this.isdis = this.foods.length <= 0;
     });
   }
 
@@ -26,8 +28,19 @@ export class BasketComponent implements OnInit {
         res = this.findquantity(res);
         res = this.remove_duplicates(res);
         this.foods = res;
-      }
+        this.isdis = this.foods.length <= 0;
+        this.total = this.getTotal(this.foods);
+    }
     );
+  }
+
+  getTotal(foods): number {
+    let total: number = 0;
+    foods.forEach((food) => {
+      total += (food.price * food.quantity);
+    });
+    console.log(this.foods + 'ermpgp[jgwrp[gjop[gwop[jgwr');
+    return total;
   }
 
   findSrc(fileName): string {
