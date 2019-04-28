@@ -14,6 +14,7 @@ import {BasketComponent} from './basket/basket.component';
 import {ProfileComponent} from './profile/profile.component';
 import {InfoComponent} from './info/info.component';
 
+
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -36,13 +37,13 @@ const routes: Routes = [
     RegisterComponent,
     BasketComponent,
     ProfileComponent,
-    InfoComponent
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

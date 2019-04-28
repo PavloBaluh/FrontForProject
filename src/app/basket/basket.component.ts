@@ -91,4 +91,9 @@ export class BasketComponent implements OnInit {
     }
     return res;
   }
+
+  getModal(modal) {
+    modal.style.display = 'block';
+  }
+
 }
