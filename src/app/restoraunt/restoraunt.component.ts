@@ -77,9 +77,9 @@ export class RestorauntComponent implements OnInit {
   }
 
   ToLocalStorage(food: Food) {
-    let food1: Food[] = {};
+    let food1: Food[];
     if (localStorage.getItem('basket') == null) {
-      let food2 = [food];
+      const food2 = [food];
       localStorage.setItem('basket', JSON.stringify(food2));
     } else {
       food1 = JSON.parse(localStorage.getItem('basket'));
