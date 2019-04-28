@@ -13,23 +13,28 @@ export class ProfileComponent implements OnInit {
     surname: '',
     address: '',
     phoneNumber: '',
-    cardInfo : {
-      cardNumber: '',
-      cvv: '',
-      date: ''
-    }
+  };
+  cardInfo = {
+    cardNumber: '',
+    cvv: '',
+    date: '',
   };
 
   constructor(private  service: MainService) {
   }
 
   save() {
-    this.service.updateUserInfo(this.formObj).subscribe((res) => {
-      console.log(res + 'ffkdkf');
+    this.service.updateUserInfo(this.formObj).subscribe(() => {
     });
   }
 
   ngOnInit() {
+    this.service.getUserInfo().subscribe((res) => {
+      console.log(res);
+      // @ts-ignore
+      this.formObj = res;
+      console.log(this.cardInfo.date);
+    });
   }
 
 }

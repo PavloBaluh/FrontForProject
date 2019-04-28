@@ -82,13 +82,17 @@
   display: flex;
   align-items: center;
 }
-.icons{
+.enter{
   display: flex;
 }
 .user{
   margin-left: 30px;
   font-size: 20px;color: snow;
   text-align: end;
+}
+
+ul{
+  list-style: none;
 }
 p, li, a {
   font-family: 'Source Sans Pro', sans-serif;

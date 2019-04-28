@@ -9,14 +9,22 @@ import {MainService} from '../Services/main.service';
 })
 export class RegisterComponent {
   header = 'Sign in';
+  obj = {
+    username: '',
+    password: '',
+    email: ''
+  };
 
   constructor(private  servise: MainService) {
   }
 
 
-  getForm(form) {
-    this.servise.register(form.value.user, form.value.pass, form.value.email).subscribe((res) => {
+  getForm() {
+    this.servise.register(this.obj.username, this.obj.password, this.obj.email).subscribe((res) => {
       this.header = res;
+      this.obj.password = '';
+      this.obj.username = '';
+      this.obj.email = '';
     });
   }
 }

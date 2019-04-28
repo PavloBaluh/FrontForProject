@@ -32,11 +32,6 @@ export class MainService {
     }
   }
 
-  // getcurrentUser(): Observable<string> {
-  //   const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
-  //   return this.http.get(this.url3, {responseType: 'text', headers});
-  // }
-
 
   register(user: string, pass: string, mail: string) {
     console.log('hello');
@@ -51,10 +46,7 @@ export class MainService {
   }
 
   getAll(): Observable<Food[]> {
-    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
-    console.log(headers.get('Authorization') + 'kfjpfepjpefpj[gef');
     return this.http.get<Food[]>(this.apiUrl + 'restaurant', {
-      headers,
     });
   }
 
@@ -83,18 +75,18 @@ export class MainService {
   }
 
   updateUserInfo(obj) {
-    console.log(JSON.stringify(obj));
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     return this.http.post(this.apiUrl + 'updateUserInfo', JSON.stringify(obj), {headers});
+
   }
 
-// getInfo() {
-//   const headers = new HttpHeaders({'Authorization': localStorage.getItem('_token')});
-//   this.http.get('http://localhost:8080/home', {
-//     headers: headers, responseType: 'text'
-//   }).subscribe((res) => {
-//     console.log(res);
-//   });
-// }
+  getByType(type: string): Observable<Food[]> {
+    return this.http.get<Food[]>(this.apiUrl + 'restaurant/product-category/' + type);
+  }
+
+  getUserInfo(): Observable<object> {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get(this.apiUrl + 'getUserInfo', {headers});
+  }
 
 }

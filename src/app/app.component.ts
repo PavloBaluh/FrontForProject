@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     if (a !== null) {
       this.user = a.sub;
     } else {
-      this.user = ('Незареєстрований');
+      this.user = ('f');
     }
   }
 

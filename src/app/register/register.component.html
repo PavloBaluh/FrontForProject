@@ -7,18 +7,18 @@
 
     <form #form = "ngForm"  class="form">
       <div class="form__group">
-        <input ngModel name="user" type="text" placeholder="Username" class="form__input" />
+        <input [(ngModel)]="obj.username" name="username" type="text" placeholder="Username" class="form__input" />
       </div>
 
       <div class="form__group">
-        <input ngModel type="email" name="email" placeholder="Email" class="form__input" />
+        <input [(ngModel)]="obj.email" type="email" name="email" placeholder="Email" class="form__input" />
       </div>
 
       <div class="form__group">
-        <input ngModel name="pass" type="password" placeholder="Password" class="form__input" />
+        <input [(ngModel)]="obj.password" name="password" type="password" placeholder="Password" class="form__input" />
       </div>
 
-      <button class="btn" type="button" (click)="getForm(form)">Register</button>
+      <button class="btn" type="button" (click)="getForm()">Register</button>
     </form>
   </div>
 </div>

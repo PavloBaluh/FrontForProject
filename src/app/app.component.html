@@ -16,7 +16,7 @@
             <a routerLink="/restaurant">Ресторан</a>
           </li>
           <li class="li2-3">
-          <a routerLink="">Акції</a>
+          <a routerLink="info">Інформація</a>
           </li>
         </ul>
       </div>
@@ -27,10 +27,16 @@
       </div>
       <div class="col nav-right">
         <div class="nav-right-top">
-          <div class="icons">
-            <a routerLink="login" title="Увійти"><img src="../assets/login%20(1).png"></a>
-            <a routerLink="register" title="Зареєструватися"><img src="../assets/login%20(1).png"></a>
+
+
+
+          <div class="enter">
+            <a routerLink="login">Увійти</a>
+            <a routerLink="register">Зареєструватись</a>
           </div>
+
+
+
           <h1  class="user">{{user}}</h1>
           <div class="user">
             <img src="../assets/man_user.png">
@@ -41,7 +47,7 @@
             <a routerLink="profile">Профіль</a>
           </li>
           <li class="li2-3">
-            <a routerLink="/">Мої замовлення</a>
+            <a routerLink="/">Історія замовлень</a>
           </li>
           <li class="li2-3">
             <a routerLink="/" (click)="logout()">Вихід</a>

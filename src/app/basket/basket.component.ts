@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MainService} from '../Services/main.service';
 import {Food} from '../Models/Food';
+import {User} from '../Models/User';
 
 @Component({
   selector: 'app-basket',
@@ -17,21 +18,35 @@ export class BasketComponent implements OnInit {
   }
 
   deleteFromBasket(food) {
-    this.foods.splice(this.foods.indexOf(food), 1);
-    this.service.deleteFood(food).subscribe((res) => {
-      this.isdis = this.foods.length <= 0;
-    });
+    const a: User = this.service.getDecodedAccessToken();
+    if (a === null) {
+      let foodsFromLocal: Food[] = JSON.parse(localStorage.getItem('basket'));
+      console.log(foodsFromLocal);
+      foodsFromLocal.splice(foodsFromLocal.indexOf(food), 1);
+      localStorage.setItem('basket', JSON.stringify(foodsFromLocal));
+      this.foods = foodsFromLocal;
+    } else {
+      this.foods.splice(this.foods.indexOf(food), 1);
+      this.service.deleteFood(food).subscribe((res) => {
+        this.isdis = this.foods.length <= 0;
+      });
+    }
   }
 
   ngOnInit() {
-    this.service.getBasket().subscribe((res) => {
-        res = this.findquantity(res);
-        res = this.remove_duplicates(res);
-        this.foods = res;
-        this.isdis = this.foods.length <= 0;
-        this.total = this.getTotal(this.foods);
+    const a: User = this.service.getDecodedAccessToken();
+    if (a === null) {
+      this.foods = JSON.parse(localStorage.getItem('basket'));
+    } else {
+      this.service.getBasket().subscribe((res) => {
+          res = this.findquantity(res);
+          res = this.remove_duplicates(res);
+          this.foods = res;
+          this.isdis = this.foods.length <= 0;
+          this.total = this.getTotal(this.foods);
+        }
+      );
     }
-    );
   }
 
   getTotal(foods): number {
