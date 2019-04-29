@@ -13,6 +13,14 @@ export class BasketComponent implements OnInit {
   isdis = false;
   total = 0;
   Img: any = '../../assets/';
+  formObj = {
+    name: '',
+    surname: '',
+    address: '',
+    phoneNumber: '',
+    date: '',
+    foods: this.foods
+  };
 
   constructor(private  service: MainService) {
   }
@@ -51,6 +59,13 @@ export class BasketComponent implements OnInit {
       );
     }
   }
+
+  makeOrder() {
+    this.formObj.date = new Date().getDate() + '.' +  new Date().getHours() + '.' + new Date().getMinutes();
+    this.formObj.foods = this.foods;
+    this.service.makeOrder(this.formObj).subscribe();
+  }
+
 
   getTotal(foods): number {
     let total: number = 0;
@@ -96,4 +111,7 @@ export class BasketComponent implements OnInit {
     modal.style.display = 'block';
   }
 
+  closeModal(modale) {
+    modale.style.display = 'none';
+  }
 }

@@ -239,7 +239,7 @@ p{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 150px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -296,10 +296,137 @@ p{
   color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  margin: 0 auto;
+  padding: 2px 16px;
+}
 
 .modal-footer {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+/*form
+ */
+#form1 {
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  margin: 50px auto 10px;
+  width: 75%
+}
+
+label, p {
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  width: 100px;
+}
+
+p {
+  width: 250px;
+}
+
+#form .pic {
+  width: 100px;
+  height: 30px;
+}
+
+#number {
+  position: relative;
+  top: -20px;
+}
+
+.menu, .picinput {
+  width: 150px;
+}
+
+.menu:invalid + span:after {
+  content: '\2718';
+  color: red;
+  margin-left: 7px;
+}
+
+.menu:valid + span:after {
+  content: '\2714';
+  color: green;
+  margin-left: 7px;
+}
+
+.picinput:focus + span:after {
+  content: '\2718  Неправильно число';
+  font-size: 14px;
+  color: red;
+  position: relative;
+  top: -20px;
+  margin-left: 7px;
+}
+
+.picinput:valid + span:after {
+  content: '\2714';
+  color: green;
+  position: relative;
+  top: -20px;
+  margin-left: 7px;
+}
+
+.button {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.qwe {
+  color: #313131;
+  background-color: #fff;
+  -webkit-appearance: button;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+}
+.qwe:hover{
+  background-color: green;
+  color: white;
+}
+#button {
+  display: none;
+}
+
+#form1 label:nth-of-type(4n) {
+  margin-bottom: 30px;
+}
+
+.bonus-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+
+
+
+

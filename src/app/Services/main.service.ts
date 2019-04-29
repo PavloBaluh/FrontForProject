@@ -46,8 +46,11 @@ export class MainService {
   }
 
   getAll(): Observable<Food[]> {
-    return this.http.get<Food[]>(this.apiUrl + 'restaurant', {
-    });
+    return this.http.get<Food[]>(this.apiUrl + 'restaurant', {});
+  }
+
+  makeOrder(obj) {
+    return this.http.post(this.apiUrl + 'makeOrder', JSON.stringify(obj));
   }
 
   addFood(food: Food) {

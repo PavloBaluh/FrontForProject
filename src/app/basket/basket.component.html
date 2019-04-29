@@ -53,21 +53,11 @@
   <div class="row">
     <div class=" col-md-12 offset-md-3 col-md-6  ">
       <div class="buy-link">
-        <button  (click)="getModal(modal)" class="submit-btn" type="submit"[disabled]=isdis >Оформити замовлення </button>
+        <button  (click)="getModal(modal)" class="submit-btn" type="submit" [disabled]=isdis >Оформити замовлення </button>
         </div>
     </div>
   </div>
-
 </div>
-
-
-
-
-
-<h2>Animated Modal with Header and Footer</h2>
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
 
 <!-- The Modal -->
 <div #modal id="myModal" class="modal">
@@ -75,16 +65,27 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Modal Header</h2>
+      <span (click)="closeModal(modal)" class="close">&times;</span>
+      <h2>Доставка курєром</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+      <form #form="ngForm" id="form1">
+        <label>Імя</label>
+        <input [(ngModel)]="formObj.name" name="name" id="name"  class="menu" required>
+        <span></span>
+        <br>
+        <label>Прізвище</label><input [(ngModel)]="formObj.surname" name="surname"  id="surname"  class="menu" required><span></span><br>
+        <label>Адреса</label><input [(ngModel)]="formObj.address"  id="city" name="address"  class="menu" required><span></span><br>
+        <label>Номер Телефону</label><input  [(ngModel)]="formObj.phoneNumber" name="date" type="text" class="menu" required><span></span><br>
+        <div class="button">
+          <label class="qwe"><input (click)="makeOrder()" id="button" type="submit">Підтвердити</label>
+        </div>
+      </form>
     </div>
     <div class="modal-footer">
-      <h3>Modal Footer</h3>
+      <h5>*Доставка відбувається на протязі 1 години</h5>
     </div>
   </div>
 
 </div>
+
