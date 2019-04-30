@@ -10,16 +10,16 @@ import {User} from '../Models/User';
 })
 export class BasketComponent implements OnInit {
   foods: Food[];
-  isdis = false;
+  isDisabled = false;
   total = 0;
   Img: any = '../../assets/';
+
   formObj = {
     name: '',
     surname: '',
     address: '',
     phoneNumber: '',
     date: '',
-    foods: this.foods
   };
 
   constructor(private  service: MainService) {
@@ -33,11 +33,12 @@ export class BasketComponent implements OnInit {
       foodsFromLocal.splice(foodsFromLocal.indexOf(food), 1);
       localStorage.setItem('basket', JSON.stringify(foodsFromLocal));
       this.foods = foodsFromLocal;
+      this.isDisabled = this.foods.length <= 0;
       this.total = this.getTotal(this.foods);
     } else {
       this.foods.splice(this.foods.indexOf(food), 1);
       this.service.deleteFood(food).subscribe((res) => {
-        this.isdis = this.foods.length <= 0;
+        this.isDisabled = this.foods.length <= 0;
         this.total = this.getTotal(this.foods);
       });
     }
@@ -47,13 +48,15 @@ export class BasketComponent implements OnInit {
     const a: User = this.service.getDecodedAccessToken();
     if (a === null) {
       this.foods = JSON.parse(localStorage.getItem('basket'));
-      this.isdis = this.foods === null;
+      console.log(this.foods);
+      this.isDisabled = this.foods.length <= 0;
+      this.total = this.getTotal(this.foods);
     } else {
       this.service.getBasket().subscribe((res) => {
           res = this.findquantity(res);
           res = this.remove_duplicates(res);
           this.foods = res;
-          this.isdis = this.foods.length <= 0;
+          this.isDisabled = this.foods.length <= 0;
           this.total = this.getTotal(this.foods);
         }
       );
@@ -61,9 +64,14 @@ export class BasketComponent implements OnInit {
   }
 
   makeOrder() {
-    this.formObj.date = new Date().getDate() + '.' +  new Date().getHours() + '.' + new Date().getMinutes();
-    this.formObj.foods = this.foods;
-    this.service.makeOrder(this.formObj).subscribe();
+    this.formObj.date = new Date().getDate() + '.' + new Date().getHours() + '.' + new Date().getMinutes();
+    const preperedFood = [];
+    for (const food of this.foods) {
+      for (let i = 0; i < food.quantity; i++) {
+        preperedFood.push(food);
+      }
+    }
+    this.service.makeOrder(this.formObj, preperedFood).subscribe();
   }
 
 

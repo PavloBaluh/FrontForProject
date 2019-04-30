@@ -144,6 +144,7 @@ p{
   cursor: pointer;
   position: relative;
   margin-bottom: 10px;
+  outline: none;
 }
 .submit-btn:disabled {
   background: #88AB31;
@@ -328,7 +329,7 @@ p{
   width: 75%
 }
 
-label, p {
+label { /*p*/
   display: inline-block;
   margin-left: 20px;
   margin-bottom: 7px;
@@ -338,9 +339,9 @@ label, p {
   width: 100px;
 }
 
-p {
-  width: 250px;
-}
+/*p {*/
+  /*width: 250px;*/
+/*}*/
 
 #form .pic {
   width: 100px;
