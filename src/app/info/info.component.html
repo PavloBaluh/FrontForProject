@@ -1,0 +1,144 @@
+<div class="content">
+  <style>
+    @media screen and (min-width: 1895px) {
+      .content.cafe.map-page {
+        padding: 0;
+      }
+    }
+  </style>
+  <div class="dost-page children-info-page">
+    <div class="dost-page-wrapper">
+
+      <div class="dost-text">
+        <div class="dost-header dost-header--conditions">
+          Условия доставки:
+        </div>
+        <div class="dost-row">
+          <div class="dost-item dost-item--free">
+            Доставка бесплатная
+          </div>
+          <div class="dost-item dost-item--min-order">
+            Сумма минимального заказа – 950 рублей
+          </div>
+          <div class="dost-item dost-item--time">
+            Доставка осуществляется в пределах МКАД без выходных с&nbsp;9&nbsp;до&nbsp;23&nbsp;часов
+          </div>
+        </div>
+        <div class="dost-row">
+          <div class="dost-item dost-item--call">
+            Заказы принимаем с 7:00 до 22:00
+          </div>
+          <div class="dost-item dost-item--map">
+            Зона доставки за МКАД
+            <div class="dost-desc">
+              Доставка в г. Реутов, Новокосино, Митино, С. и Ю. Бутово,&nbsp;п. Восточный, <br>
+              п. Сосенское (р-н Коммунарка)&nbsp;с 10:00 до 21:00.&nbsp;<br>
+              Доставка в г. Зеленоград и районах: Андреевка, Голубое, Льялово, Брехово, Менделеево, Фирсановка: пн, вт, ср, чт, вс: с 11:00 до 21:00, пт, сб: с 11:00 до 22:00.&nbsp;<br>
+              Доставка в г. Химки: с 10:00 до 21:00.<br>
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="dost-row">
+          <div class="dost-item dost-item--suchi">
+            Доставка суши и роллов осуществляется в пределах МКАД, а также в г. Зеленоград и г. Химки
+          </div>
+          <div class="dost-item dost-item--pizza">
+            Время доставки пиццы может быть увеличено:
+            <div class="dost-desc">
+              Точное время уточняйте у оператора
+            </div>
+          </div>
+          <div class="dost-item dost-item--fast">
+            Время доставки заказа – в течение 90 минут (точное время доставки уточняйте у оператора)
+          </div>
+        </div>
+        <!-- <div class="dost-row">
+           <div class="dost-item dost-item--fast">
+                Время доставки заказа – в течение 90 минут (точное время доставки уточняйте у оператора)
+           </div>
+       </div> -->
+        <div class="dost-header dost-header--sposob">
+          Заказ можно сделать несколькими способами:
+        </div>
+        <div class="dost-row">
+          <div class="dost-item dost-item--menu dost-item--inline-block">
+            На нашем сайте в&nbsp;разделе <a href="http://test.cafemumu.ru/menu/" target="_blank">меню</a>
+          </div>
+          <div class="dost-item dost-item--phone dost-item--inline-block">
+            <!-- По телефону <span class="pre">+7 (495)781-8-781</span> --> Через <a href="/local/templates/mumu_v20/choose-store.php" class="fancybox.ajax">мобильное приложение МУ-МУ</a>
+          </div>
+          <div class="dost-item dost-item--email dost-item--inline-block">
+            По электронной почте <a href="mailto:dostavka@cafemumu.ru">dostavka@cafemumu.ru</a>
+          </div>
+        </div>
+        <div class="dost-row">
+          <div class="dost-item dost-item--callback dost-item--inline-block">
+            <a href="#" class="js-delivery-callback">Заказать обратный звонок</a>
+          </div>
+        </div>
+        <div class="dost-header dost-header--pay">
+          Оплата заказа:
+        </div>
+        <div class="dost-row">
+          <div class="dost-item dost-item--portmone dost-item--inline-block">
+            Наличными курьеру
+          </div>
+          <div class="dost-item dost-item--card dost-item--inline-block">
+            Картой на сайте
+          </div>
+          <div class="dost-item dost-item--ur dost-item--inline-block">
+            По счету для юридических лиц
+          </div>
+        </div>
+        <div class="dost-header dost-header--dost">
+          Доставка ко времени:
+        </div>
+        <div class="dost-row">
+          <div class="dost-item dost-item--dosttime">
+            Обязательное условие: заказ должен быть сделан не менее чем за 3 часа до желаемого времени доставки
+          </div>
+          <div class="dost-item dost-item--time2">
+            Заказ будет доставлен точно в указанное вами время
+          </div>
+        </div>
+        <div class="dost-header dost-header--pit">
+          Пищевая и энергетическая ценность блюд указаны на 100 г (среднее расчетное значение) <a href="/catalog/" class="dost-header__link">Меню доставки,</a> <a href="https://www.cafemumu.ru/upload/price_cafemumu_new.pdf" class="dost-header__link">Прейскурант</a>
+        </div>
+        <br>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var os = function() {
+              var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+              if (/android/i.test(userAgent)) {
+                return "Android";
+              } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+              }
+              return "not";
+            }
+            var link = $('.dost-item--phone a');
+            if(os() === "Android") {
+              link.attr('href', 'https://play.google.com/store/apps/details?id=com.premiumbonus.jamm.mumu');
+            } else if (os() === 'iOS') {
+              link.attr('href', 'https://itunes.apple.com/ru/app/%D0%BA%D0%B0%D1%84%D0%B5-%D0%BC%D1%83-%D0%BC%D1%83/id1201792374?mt=8');
+            } else {
+              link.attr('href', '/local/templates/mumu_v20/choose-store.php');
+              link.addClass('fancybox.ajax');
+              link.fancybox({
+                wrapCSS: 'ch-store',
+                width: 300,
+                autoSize: false,
+                height: 256,
+                helpers: {
+                  overlay: {
+                    locked: false
+                  }
+                },
+              });
+            }
+          });
+        </script>		</div>
+    </div>
+  </div>
+</div>
