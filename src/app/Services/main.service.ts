@@ -49,11 +49,12 @@ export class MainService {
     return this.http.get<Food[]>(this.apiUrl + 'restaurant', {});
   }
 
-  makeOrder(obj, foods) {
-    const headers = new HttpHeaders({
-      foods: JSON.stringify(foods)
-    });
-    return this.http.post(this.apiUrl + 'makeOrder', JSON.stringify(obj), {headers});
+  makeOrder(obj, foods: Food[]) {
+    const arr = [];
+    for (const food of foods) {
+      arr.push(food.name);
+    }
+    return this.http.post(this.apiUrl + 'makeOrder/basket/' + arr, JSON.stringify(obj));
   }
 
 
