@@ -1,0 +1,46 @@
+
+
+* {
+  outline: none;
+}
+.content {
+  height: auto;
+  margin-top: 100px;
+}
+.dost-page {
+  margin-bottom: 0
+}
+.dost-page-wrapper {
+   padding-bottom: 40px;
+   padding-top: 20px;
+ }
+
+
+.dost-header {
+  color: #000;
+  font-size: 20px;
+  line-height: 26px;
+  font-family: 'MuseoSansCyrl900';
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 840px;
+}
+
+@media (min-width: 743px){
+  .children-info-page {
+    background-color: #fff;
+    padding-top: 10px;
+  }}
+@media (min-width: 1000px){
+  .dost-page {
+    padding: 50px 80px;
+  }}
+@media (min-width: 743px) {
+  .dost-page-wrapper {
+    padding-top: 40px;
+  }
+}
+@media (min-width: 743px){
+  .company-toggle-title {
+    display: none;
+  }}
