@@ -22,6 +22,7 @@ export class BasketComponent implements OnInit {
     date: '',
   };
 
+
   constructor(private  service: MainService) {
   }
 
@@ -66,8 +67,10 @@ export class BasketComponent implements OnInit {
   makeOrder() {
     this.formObj.date = new Date().getDate() + '.' + new Date().getHours() + '.' + new Date().getMinutes();
     const preperedFood = [];
+    console.log(this.foods);
     for (const food of this.foods) {
       for (let i = 0; i < food.quantity; i++) {
+        console.log(food);
         preperedFood.push(food);
       }
     }
@@ -116,6 +119,12 @@ export class BasketComponent implements OnInit {
   }
 
   getModal(modal) {
+    if (this.service.getDecodedAccessToken() != null) {
+      this.service.getUserInfo().subscribe((res) => {
+        // @ts-ignore
+        this.formObj = res;
+      });
+    }
     modal.style.display = 'block';
   }
 

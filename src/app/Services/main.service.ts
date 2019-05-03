@@ -4,7 +4,6 @@ import {Observable, Subject} from 'rxjs';
 import {Food} from '../Models/Food';
 import * as jwt_decode from 'jwt-decode';
 import {User} from '../Models/User';
-import {tick} from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -50,11 +49,17 @@ export class MainService {
   }
 
   makeOrder(obj, foods: Food[]) {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     const arr = [];
     for (const food of foods) {
       arr.push(food.name);
     }
-    return this.http.post(this.apiUrl + 'makeOrder/basket/' + arr, JSON.stringify(obj));
+    const dec = this.getDecodedAccessToken();
+    if (dec != null) {
+      return this.http.post(this.apiUrl + 'makeOrder/basket/' + arr, JSON.stringify(obj), {headers});
+    } else {
+      return this.http.post(this.apiUrl + 'makeOrder/basket/' + arr, JSON.stringify(obj));
+    }
   }
 
 
@@ -81,6 +86,7 @@ export class MainService {
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     return this.http.get<Food[]>(this.apiUrl + 'basket', {headers});
   }
+
 
   updateUserInfo(obj) {
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});

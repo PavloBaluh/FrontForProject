@@ -14,10 +14,16 @@ import * as jwt_decode from 'jwt-decode';
 @Injectable()
 export class AppComponent implements OnInit {
   user: string;
+  dis = true;
 
   constructor(private service: MainService, private Activatedroute: ActivatedRoute) {
     service.changeEmitted$.subscribe(data => {
       this.user = data;
+      if (this.user === 'f') {
+        this.dis = true;
+      } else {
+        this.dis = false;
+      }
     });
   }
 
@@ -25,7 +31,9 @@ export class AppComponent implements OnInit {
     const a: User = this.service.getDecodedAccessToken();
     if (a !== null) {
       this.user = a.sub;
+      this.dis = false;
     } else {
+      this.dis = true;
       this.user = ('f');
     }
   }

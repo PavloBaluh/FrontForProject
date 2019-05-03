@@ -16,41 +16,35 @@
             <a routerLink="/restaurant">Ресторан</a>
           </li>
           <li class="li2-3">
-          <a routerLink="info">Інформація</a>
+            <a routerLink="info">Інформація</a>
           </li>
         </ul>
       </div>
       <div class="col nav-logo">
-        <a id = "logo-wrap">
+        <a id="logo-wrap">
           <img class="logo" src="../assets/logo.png">
         </a>
       </div>
       <div class="col nav-right">
         <div class="nav-right-top">
-
-
-
           <div class="enter">
             <a routerLink="login">Увійти</a>
             <a routerLink="register">Зареєструватись</a>
           </div>
-
-
-
-          <h1  class="user">{{user}}</h1>
+          <h1 class="user">{{user}}</h1>
           <div class="user">
             <img src="../assets/man_user.png">
           </div>
         </div>
         <ul class="nav">
           <li>
-            <a routerLink="profile">Профіль</a>
+            <a [ngClass]="[dis ? 'disabled' : 'enabled']" routerLink="profile">Профіль</a>
           </li>
-          <li class="li2-3">
-            <a routerLink="/">Історія замовлень</a>
+          <li  class="li2-3">
+            <a [ngClass]="[dis ? 'disabled' : 'enabled']"routerLink="/">Історія замовлень</a>
           </li>
-          <li class="li2-3">
-            <a routerLink="/" (click)="logout()">Вихід</a>
+          <li  class="li2-3">
+            <a [ngClass]="[dis ? 'disabled' : 'enabled']" routerLink="/" (click)="logout()">Вихід</a>
           </li>
         </ul>
       </div>

@@ -30,10 +30,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.service.getUserInfo().subscribe((res) => {
-      console.log(res);
-      // @ts-ignore
-      this.formObj = res;
-      console.log(this.cardInfo.date);
+      if (res != null) {
+        // @ts-ignore
+        this.formObj = res;
+      }
     });
   }
 

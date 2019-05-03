@@ -13,24 +13,25 @@ export class LoginComponent {
   name: string;
   user: User;
 
+
   constructor(private service: MainService,
               private router: Router) {
   }
 
   sendData(form) {
-    console.log(form);
+
     this.service.login(form.value.user, form.value.pass).subscribe((res) => {
       localStorage.setItem('_key', res.headers.get('Authorization'));
       const a: User = this.service.getDecodedAccessToken();
       if (a !== null) {
         this.user = a;
+
       } else {
-        console.log('lellee');
         this.user = new User('Незареєстрований');
+
       }
       this.service.emitChange(this.user.sub);
       this.router.navigate(['']);
     });
-    console.log(0);
   }
 }
