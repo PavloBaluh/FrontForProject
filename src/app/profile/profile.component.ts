@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
     surname: '',
     address: '',
     phoneNumber: '',
+    bonus: 0.0,
   };
   cardInfo = {
     cardNumber: '',

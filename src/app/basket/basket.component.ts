@@ -20,6 +20,7 @@ export class BasketComponent implements OnInit {
     address: '',
     phoneNumber: '',
     date: '',
+    bonus: 0.0,
   };
 
 
@@ -66,6 +67,7 @@ export class BasketComponent implements OnInit {
 
   makeOrder() {
     this.formObj.date = new Date().getDate() + '.' + new Date().getHours() + '.' + new Date().getMinutes();
+    this.formObj.bonus = this.total / 10;
     const preperedFood = [];
     console.log(this.foods);
     for (const food of this.foods) {
@@ -83,7 +85,6 @@ export class BasketComponent implements OnInit {
     foods.forEach((food) => {
       total += (food.price * food.quantity);
     });
-    console.log(this.foods + 'ermpgp[jgwrp[gjop[gwop[jgwr');
     return total;
   }
 
@@ -121,8 +122,10 @@ export class BasketComponent implements OnInit {
   getModal(modal) {
     if (this.service.getDecodedAccessToken() != null) {
       this.service.getUserInfo().subscribe((res) => {
-        // @ts-ignore
-        this.formObj = res;
+        if (res != null) {
+          // @ts-ignore
+          this.formObj = res;
+        }
       });
     }
     modal.style.display = 'block';
