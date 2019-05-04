@@ -109,6 +109,7 @@
 
 ul{
   list-style: none;
+
 }
 p, li, a {
   font-family: 'Source Sans Pro', sans-serif;
@@ -118,6 +119,7 @@ p, li, a {
 }
 p{
   margin-right:10px;
+outline: none;
 }
 div {
   font-family: 'Source Sans Pro', sans-serif;
@@ -132,7 +134,7 @@ img{
    text-decoration: none
 }
  .li2-3{
-   margin-left: 30px;
+   margin-left: 27px;
  }
 #logo-wrap{
   width: 100%;
@@ -165,7 +167,7 @@ img{
 
 @media (max-width: 1200px) and (min-width: 992px) {
   header, li, a {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 

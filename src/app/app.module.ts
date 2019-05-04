@@ -13,6 +13,8 @@ import {RegisterComponent} from './register/register.component';
 import {BasketComponent} from './basket/basket.component';
 import {ProfileComponent} from './profile/profile.component';
 import {InfoComponent} from './info/info.component';
+import {Ng2CarouselamosModule} from 'ng2-carouselamos';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Routes = [
@@ -40,6 +42,8 @@ const routes: Routes = [
     InfoComponent,
   ],
   imports: [
+    NgbModule,
+    Ng2CarouselamosModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),

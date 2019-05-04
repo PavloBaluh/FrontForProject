@@ -27,23 +27,22 @@
       </div>
       <div class="col nav-right">
         <div class="nav-right-top">
-          <div class="enter">
-            <a routerLink="login">Увійти</a>
-            <a routerLink="register">Зареєструватись</a>
-          </div>
-          <h1 class="user">{{user}}</h1>
-          <div class="user">
-            <img src="../assets/man_user.png">
+          <div class="basket">
+            <p *ngIf="dis"routerLink="login">Увійти</p>
+            <p *ngIf="dis">|</p>
+            <p *ngIf="dis" routerLink="register">Зареєструватись</p>
+            <p routerLink="profile" *ngIf="!dis">{{user}}</p>
+            <img style="outline: none" routerLink="profile" src="../assets/man_user.png">
           </div>
         </div>
         <ul class="nav">
           <li>
             <a [ngClass]="[dis ? 'disabled' : 'enabled']" routerLink="profile">Профіль</a>
           </li>
-          <li  class="li2-3">
-            <a [ngClass]="[dis ? 'disabled' : 'enabled']"routerLink="/">Історія замовлень</a>
+          <li class="li2-3">
+            <a [ngClass]="[dis ? 'disabled' : 'enabled']" routerLink="/">Історія замовлень</a>
           </li>
-          <li  class="li2-3">
+          <li class="li2-3">
             <a [ngClass]="[dis ? 'disabled' : 'enabled']" routerLink="/" (click)="logout()">Вихід</a>
           </li>
         </ul>

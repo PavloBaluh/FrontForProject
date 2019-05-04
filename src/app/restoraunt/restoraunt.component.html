@@ -1,21 +1,24 @@
+<div style="width: 100%;background-color:wheat; height: 70px">
+<div class="stckedcont" style="position: relative; top: 20px;">
+  <div class="container1">
+    <div class="secondmenu">
+      <ul>
+        <li (click)="getByType('pizza')" class="active"><a><i class="icon-novelty"></i>Піцци</a></li>
+        <li (click)="getByType('burger')" class=""><a><i class="icon-breakfast"></i>Бургери</a></li>
+        <li (click)="getByType('salad')" class=""><a><i class="icon-salad"></i>Салати</a></li>
+        <li (click)="getByType('soup')" class=""><a><i class="icon-soup"></i>Супи</a></li>
+        <li (click)="getByType('drinks')" class=""><a><i class="icon-main_dish"></i>Напої</a></li>
+        <li (click)="getByType('desert')"><a><i class="icon-drink"></i>Десерты</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="dish-container">
   <div class="row">
     <div id="content" class="col">
-      <div class="stckedcont" style="position: relative; top: 20px;">
-        <div class="container1">
-          <div class="secondmenu">
-            <ul>
-              <li (click)="getByType('pizza')" class="active"><a><i class="icon-novelty"></i>Піцци</a></li>
-              <li (click)="getByType('burger')" class=""><a><i class="icon-breakfast"></i>Бургери</a></li>
-              <li (click)="getByType('salad')" class=""><a><i class="icon-salad"></i>Салати</a></li>
-              <li (click)="getByType('soup')" class=""><a><i class="icon-soup"></i>Супи</a></li>
-              <li (click)="getByType('drinks')" class=""><a><i class="icon-main_dish"></i>Напої</a></li>
-              <li (click)="getByType('desert')"><a><i class="icon-drink"></i>Десерты</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <h1>vova dodik naxuy suka</h1>
+      <h1>Меню</h1>
       <ul>
         <li class="col-2" *ngFor="let food of foods">
           <div class="dish">
