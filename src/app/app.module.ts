@@ -15,6 +15,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {InfoComponent} from './info/info.component';
 import {Ng2CarouselamosModule} from 'ng2-carouselamos';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HistoryComponent } from './history/history.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'basket', component: BasketComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'info', component: InfoComponent}
+  {path: 'info', component: InfoComponent},
+  {path: 'history', component: HistoryComponent}
 ];
 
 
@@ -40,6 +42,7 @@ const routes: Routes = [
     BasketComponent,
     ProfileComponent,
     InfoComponent,
+    HistoryComponent,
   ],
   imports: [
     NgbModule,

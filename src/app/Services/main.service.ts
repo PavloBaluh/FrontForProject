@@ -4,6 +4,7 @@ import {Observable, Subject} from 'rxjs';
 import {Food} from '../Models/Food';
 import * as jwt_decode from 'jwt-decode';
 import {User} from '../Models/User';
+import {Orders} from '../Models/Orders';
 
 @Injectable({
   providedIn: 'root'
@@ -101,6 +102,11 @@ export class MainService {
   getUserInfo(): Observable<object> {
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     return this.http.get(this.apiUrl + 'getUserInfo', {headers});
+  }
+
+  getHistory(): Observable<Orders[]> {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get<Orders[]>(this.apiUrl + 'history', {headers});
   }
 
 }
