@@ -12,7 +12,7 @@ export class BasketComponent implements OnInit {
   foods: Food[];
   isDisabled = false;
   total = 0;
-  Img: any = '../../assets/';
+  Img: any = '../../assets/restourant/';
 
   formObj = {
     name: '',

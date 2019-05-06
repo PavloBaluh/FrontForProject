@@ -28,9 +28,9 @@
       <div class="col nav-right">
         <div class="nav-right-top">
           <div class="basket">
-            <p *ngIf="dis"routerLink="login">Увійти</p>
-            <p *ngIf="dis">|</p>
-            <p *ngIf="dis" routerLink="register">Зареєструватись</p>
+            <h1 *ngIf="dis"routerLink="login">Увійти</h1>
+            <h1 *ngIf="dis">	&nbsp;|	&nbsp;</h1>
+            <p *ngIf="dis" routerLink="register">Зареєструватись	</p>
             <p routerLink="profile" *ngIf="!dis">{{user}}</p>
             <img style="outline: none" routerLink="profile" src="../assets/man_user.png">
           </div>

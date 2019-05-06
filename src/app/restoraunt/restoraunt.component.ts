@@ -14,7 +14,7 @@ export class RestorauntComponent implements OnInit {
   foods: Food[] = [];
 
 
-  Img: any = '../../assets/';
+  Img: any = '../../assets/restourant/';
 
   constructor(private service: MainService) {
   }
