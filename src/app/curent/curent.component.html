@@ -1,12 +1,19 @@
 <div class="container">
-  <div class="dish-img">
-    <img [alt]="food.picture" [src]="findSrc(food.picture)">
+  <div class="col-md-6">
+    <div class="dish-img">
+      <div class="dish-img-conteiner">
+        <img  [alt]="food.picture" [src]="findSrc(food.picture)">
+      </div>
+    </div>
   </div>
   <div class="content">
     <div class="content-header">
       <h1>{{food.name}}</h1>
     </div>
+    <div class="content-discription">
     <p>{{food.description}}</p>
-    <button (click)="Inbasket(food)">В корзину</button>
+    </div>
+    <button (click)="Inbasket(food)"  class="submit-btn" type="submit">Оформити замовлення </button>
   </div>
 </div>
+

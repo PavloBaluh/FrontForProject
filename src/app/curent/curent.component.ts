@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Food} from '../Models/Food';
 import {MainService} from '../Services/main.service';
 
@@ -11,9 +11,9 @@ import {MainService} from '../Services/main.service';
 export class CurentComponent implements OnInit {
 
   food: Food;
-  Img: any = '../../assets/';
+  Img: any = '../../assets/restourant/';
 
-  constructor(private activatedRoute: ActivatedRoute, private service: MainService) {
+  constructor(private activatedRoute: ActivatedRoute, private service: MainService, private router: Router ) {
   }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class CurentComponent implements OnInit {
 
   Inbasket(food: Food) {
     this.service.addFood(food).subscribe((res) => {
-      console.log(res);
+      this.router.navigate(['basket']);
     });
   }
 
