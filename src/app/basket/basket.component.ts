@@ -66,7 +66,8 @@ export class BasketComponent implements OnInit {
   }
 
   makeOrder() {
-    this.formObj.date = new Date().getDate() + '.' + new Date().getHours() + '.' + new Date().getMinutes();
+    let date = new Date();
+    this.formObj.date = '0' + date.getDate() + '.0' + (date.getMonth() + 1) + ' ' + date.getHours() + ':' + date.getMinutes();
     this.formObj.bonus = this.total / 10;
     const preperedFood = [];
     console.log(this.foods);

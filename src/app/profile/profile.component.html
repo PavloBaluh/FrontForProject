@@ -15,22 +15,15 @@
 <h4>*За кожне замовлення вам нараховується бонус в розмірії 10% від вартості завмовлення</h4>
 
   <form #form="ngForm" id="form1">
-    <label for="name">Імя</label>
+    <label>Імя</label>
     <input [(ngModel)]="formObj.name" name="name" id="name"  class="menu" required>
     <span></span>
     <br>
-    <label for="surname">Прізвище</label><input [(ngModel)]="formObj.surname" name="surname"  id="surname"  class="menu" required><span></span><br>
-    <label for="city">Адреса</label><input [(ngModel)]="formObj.address"  id="city" name="address"  class="menu" required><span></span><br>
-    <label for="password">Номер Телефону</label><input  [(ngModel)]="formObj.phoneNumber" name="date" type="text" class="menu" required
-                                             pattern="[0-9]{7,}"><span></span><br>
+    <label>Прізвище</label><input [(ngModel)]="formObj.surname" name="surname"  id="surname"  class="menu" required><span></span><br>
+    <label>Адреса</label><input [(ngModel)]="formObj.address"  id="city" name="address"  class="menu" required><span></span><br>
+    <label>Номер Телефону</label><input  [(ngModel)]="formObj.phoneNumber" name="date" type="text" class="menu" required pattern="[0-9]{7,}"><span></span><br>
     <div class="button">
     <label class="qwe"><input (click)="save()" id="button" type="submit">Зберегти</label>
     </div>
-    <hr>
-    <label for="mail">Номер платіжної картки</label><input [(ngModel)]="cardInfo.cardNumber" name="number"  id="mail" type="text" class="menu"
-                                                           required><span></span><br>
-    <label for="password">CVV</label><input id="password" [(ngModel)]="cardInfo.cvv" name="cvv" type="password" class="menu" pattern="[0-9]{3,}"
-                                            required><span></span><br>
-    <!--<label for="password">Date</label><input  [(ngModel)]="cardInfo.date" name="date" type="text" class="menu" required><span></span><br>-->
   </form>
 </div>
