@@ -13,7 +13,9 @@
 
 
 .aboutus {
-  margin-bottom: 40px;
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
 }
 h3 {
   font-size: 16px;
