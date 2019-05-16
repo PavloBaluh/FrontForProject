@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MainService} from '../Services/main.service';
 import {Food} from '../Models/Food';
 import {HttpHeaders} from '@angular/common/http';
@@ -12,8 +12,8 @@ import {el} from '@angular/platform-browser/testing/src/browser_util';
 })
 export class RestorauntComponent implements OnInit {
   foods: Food[] = [];
-
-
+  @ViewChild('notification') notification: ElementRef;
+  @ViewChild('text') text: ElementRef;
   Img: any = '../../assets/restourant/';
 
   constructor(private service: MainService) {
@@ -42,6 +42,7 @@ export class RestorauntComponent implements OnInit {
       this.service.addFood(food).subscribe((res) => {
       });
     }
+    this.showNotification(food);
   }
 
   getByType(type: string) {
@@ -66,13 +67,11 @@ export class RestorauntComponent implements OnInit {
       });
     }
     if (x === false) {
-      {
-        this.foods.forEach((item) => {
-          if (item.id === food.id) {
-            item.quantity++;
-          }
-        });
-      }
+      this.foods.forEach((item) => {
+        if (item.id === food.id) {
+          item.quantity++;
+        }
+      });
     }
   }
 
@@ -87,6 +86,14 @@ export class RestorauntComponent implements OnInit {
       food1.push(food);
       localStorage.setItem('basket', JSON.stringify(food1));
     }
+  }
+
+  showNotification(food: Food) {
+    this.notification.nativeElement.style.display = 'block';
+    this.text.nativeElement.textContent = 'Замовлення на ' + food.name + ' кількістю - ' + food.quantity + 'шт. успішно додано в корзину';
+    setTimeout(() => {
+      this.notification.nativeElement.style.display = 'none';
+    }, 3000);
   }
 
 }

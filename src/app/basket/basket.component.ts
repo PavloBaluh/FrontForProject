@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MainService} from '../Services/main.service';
 import {Food} from '../Models/Food';
 import {User} from '../Models/User';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-basket',
@@ -24,7 +25,7 @@ export class BasketComponent implements OnInit {
   };
 
 
-  constructor(private  service: MainService) {
+  constructor(private  service: MainService, private router: Router) {
   }
 
   deleteFromBasket(food) {
@@ -51,14 +52,14 @@ export class BasketComponent implements OnInit {
     if (a === null) {
       this.foods = JSON.parse(localStorage.getItem('basket'));
       console.log(this.foods);
-      this.isDisabled = this.foods.length <= 0;
+      this.isDisabled = this.foods === null;
       this.total = this.getTotal(this.foods);
     } else {
       this.service.getBasket().subscribe((res) => {
           res = this.findquantity(res);
           res = this.remove_duplicates(res);
           this.foods = res;
-          this.isDisabled = this.foods.length <= 0;
+          this.isDisabled = this.foods.length === 0;
           this.total = this.getTotal(this.foods);
         }
       );
@@ -78,15 +79,18 @@ export class BasketComponent implements OnInit {
       }
     }
     this.service.makeOrder(this.formObj, preperedFood).subscribe();
+    this.router.navigate(['']);
   }
 
 
   getTotal(foods): number {
-    let total: number = 0;
-    foods.forEach((food) => {
-      total += (food.price * food.quantity);
-    });
-    return total;
+    if (foods != null) {
+      let total: number = 0;
+      foods.forEach((food) => {
+        total += (food.price * food.quantity);
+      });
+      return total;
+    }
   }
 
   findSrc(fileName): string {

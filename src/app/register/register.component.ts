@@ -8,7 +8,7 @@ import {MainService} from '../Services/main.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  header = 'Sign in';
+  header = 'Зареєструватися';
   obj = {
     username: '',
     password: '',

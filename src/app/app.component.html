@@ -32,7 +32,7 @@
             <h1 *ngIf="dis">	&nbsp;|	&nbsp;</h1>
             <p *ngIf="dis" routerLink="register">Зареєструватись	</p>
             <p routerLink="profile" *ngIf="!dis">{{user}}</p>
-            <img style="outline: none" routerLink="profile" src="../assets/man_user.png">
+            <img  [ngClass]="[dis ? 'disabled' : 'enabled']" style="outline: none" routerLink="profile" src="../assets/man_user.png">
           </div>
         </div>
         <ul class="nav">
