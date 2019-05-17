@@ -2,23 +2,27 @@
   <div class="user">
     <header class="user__header">
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
-      <h1 class="user__title">{{header}}</h1>
+      <h1  class="user__title">{{header}}</h1>
+
+      <h1 class="error" *ngIf="(username.touched && username.errors?.pattern) || (password.touched && password.errors?.pattern)">
+      Імя користувача і пароль повинні містити лише  латинські букви і цифри
+    </h1>
     </header>
 
     <form #form = "ngForm"  class="form">
       <div class="form__group">
-        <input [(ngModel)]="obj.username" name="username" type="text" placeholder="Username" class="form__input" />
+        <input  [(ngModel)]="obj.username" name="username"   #username = "ngModel"   pattern="^[a-zA-Z0-9]+$" type="text" placeholder="Username" class="form__input" />
       </div>
 
       <div class="form__group">
-        <input [(ngModel)]="obj.email" type="email" name="email" placeholder="Email" class="form__input" />
+        <input #email="ngModel" name="email"  [(ngModel)]="obj.email" type="email"  placeholder="Email"  class="form__input" />
       </div>
 
       <div class="form__group">
-        <input [(ngModel)]="obj.password" name="password" type="password" placeholder="Password" class="form__input" />
+        <input  #password = "ngModel"  [(ngModel)]="obj.password" name="password" required  pattern="^[a-zA-Z0-9]+$" type="password" placeholder="Password" class="form__input" />
       </div>
 
-      <button class="btn" type="button" (click)="getForm()">Register</button>
+      <button class="btn" type="button" name="btn" (click)="getForm()">Підтвердити</button>
     </form>
   </div>
 </div>
