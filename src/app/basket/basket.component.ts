@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
-  error =  '';
+  error = '';
   foods: Food[];
   isDisabled = false;
   total = 0;
@@ -142,5 +142,9 @@ export class BasketComponent implements OnInit {
 
   closeModal(modale) {
     modale.style.display = 'none';
+  }
+
+  hi() {
+    console.log('hello');
   }
 }
