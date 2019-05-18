@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
+  error =  '';
   foods: Food[];
   isDisabled = false;
   total = 0;
@@ -67,20 +68,24 @@ export class BasketComponent implements OnInit {
   }
 
   makeOrder() {
-    this.formObj.date = new Date();
-    this.formObj.bonus = this.total / 10;
-    const preperedFood = [];
-    console.log(this.foods);
-    for (const food of this.foods) {
-      for (let i = 0; i < food.quantity; i++) {
-        console.log(food);
-        preperedFood.push(food);
+    if (this.formObj.name.match('[а-яА-ЯёЁa]{3,15}$') && this.formObj.surname.match('[а-яА-ЯёЁa]{3,15}$')
+      && this.formObj.address.match('[а-яА-ЯёЁa -/0-9]{3,15}$') && this.formObj.phoneNumber.match('[0-9]{12}')) {
+      this.formObj.date = new Date();
+      this.formObj.bonus = this.total / 10;
+      const preperedFood = [];
+      console.log(this.foods);
+      for (const food of this.foods) {
+        for (let i = 0; i < food.quantity; i++) {
+          console.log(food);
+          preperedFood.push(food);
+        }
       }
+      this.service.makeOrder(this.formObj, preperedFood).subscribe();
+      this.router.navigate(['']);
+    } else {
+      this.error = 'Данні введено не вірно Перевірте правильність і спробуйте ще раз';
     }
-    this.service.makeOrder(this.formObj, preperedFood).subscribe();
-    this.router.navigate(['']);
   }
-
 
   getTotal(foods): number {
     if (foods != null) {

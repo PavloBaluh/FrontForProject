@@ -33,6 +33,9 @@ export class RegisterComponent {
         });
       } else {
         this.header = 'Перевірте введені данні';
+        this.obj.password = '';
+        this.obj.username = '';
+        this.obj.email = '';
       }
       }
     }

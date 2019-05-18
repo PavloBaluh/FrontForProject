@@ -7,6 +7,8 @@ import {MainService} from '../Services/main.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  error = '';
+  currect = '';
 
   formObj = {
     name: '',
@@ -15,18 +17,26 @@ export class ProfileComponent implements OnInit {
     phoneNumber: '',
     bonus: 0.0,
   };
-  cardInfo = {
-    cardNumber: '',
-    cvv: '',
-    date: '',
-  };
+
 
   constructor(private  service: MainService) {
   }
 
   save() {
-    this.service.updateUserInfo(this.formObj).subscribe(() => {
-    });
+    if (this.formObj.name.match('[а-яА-ЯёЁa]{3,15}$') && this.formObj.surname.match('[а-яА-ЯёЁa]{3,15}$')
+      && this.formObj.address.match('[а-яА-ЯёЁa -/0-9]{3,15}$') && this.formObj.phoneNumber.match('[0-9]{12}')) {
+      this.service.updateUserInfo(this.formObj).subscribe(() => {
+        this.currect = 'Збережено';
+        setTimeout(() => {
+          this.currect = '';
+        }, 3000);
+      });
+    } else {
+      this.error = 'Данні введено не вірно Перевірте правильність і спробуйте ще раз';
+      setTimeout(() => {
+        this.error = '';
+      }, 3000);
+    }
   }
 
   ngOnInit() {

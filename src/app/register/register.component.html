@@ -5,21 +5,24 @@
       <h1  class="user__title">{{header}}</h1>
 
       <h1 class="error" *ngIf="(username.touched && username.errors?.pattern) || (password.touched && password.errors?.pattern)">
-      Імя користувача і пароль повинні містити лише  латинські букви і цифри
-    </h1>
+      І'мя користувача і пароль повинні містити лише  латинські букви і цифри, і включати як мінімум 3 символа
+     </h1>
+      <h1 class="error" *ngIf="email.touched && email.errors?.pattern">
+        ВВедіть коректну адрессу електронної пошти
+      </h1>
     </header>
 
     <form #form = "ngForm"  class="form">
       <div class="form__group">
-        <input  [(ngModel)]="obj.username" name="username"   #username = "ngModel"   pattern="^[a-zA-Z0-9]+$" type="text" placeholder="Username" class="form__input" />
+        <input  [(ngModel)]="obj.username" name="username"   #username = "ngModel"   pattern="^[a-zA-Z0-9]{3,15}$" type="text" placeholder="І'мя користвача" class="form__input" />
       </div>
 
       <div class="form__group">
-        <input #email="ngModel" name="email"  [(ngModel)]="obj.email" type="email"  placeholder="Email"  class="form__input" />
+        <input #email="ngModel" name="email"  [(ngModel)]="obj.email" type="email" pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"  placeholder="Електронна пошта"  class="form__input" />
       </div>
 
       <div class="form__group">
-        <input  #password = "ngModel"  [(ngModel)]="obj.password" name="password" required  pattern="^[a-zA-Z0-9]+$" type="password" placeholder="Password" class="form__input" />
+        <input  #password = "ngModel"  [(ngModel)]="obj.password" name="password" required  pattern="^[a-zA-Z0-9]{3,15}$" type="password" placeholder="Пароль" class="form__input" />
       </div>
 
       <button class="btn" type="button" name="btn" (click)="getForm()">Підтвердити</button>

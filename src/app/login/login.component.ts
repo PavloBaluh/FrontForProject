@@ -10,28 +10,31 @@ import {User} from '../Models/User';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  name: string;
+  header = 'Увійти';
   user: User;
-
+  obj = {
+    username: '',
+    password: '',
+  };
 
   constructor(private service: MainService,
               private router: Router) {
   }
 
-  sendData(form) {
-
-    this.service.login(form.value.user, form.value.pass).subscribe((res) => {
+  sendData() {
+    this.service.login(this.obj.username, this.obj.password).subscribe((res) => {
       localStorage.setItem('_key', res.headers.get('Authorization'));
       const a: User = this.service.getDecodedAccessToken();
       if (a !== null) {
         this.user = a;
+        this.service.emitChange(this.user.sub);
+        this.router.navigate(['']);
 
       } else {
-        this.user = new User('Незареєстрований');
-
+        this.header = 'Не вірне імя користувача або пароль';
+        this.obj.password = '';
+        this.obj.username = '';
       }
-      this.service.emitChange(this.user.sub);
-      this.router.navigate(['']);
     });
   }
 }

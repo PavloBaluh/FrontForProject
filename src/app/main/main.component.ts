@@ -26,6 +26,9 @@ export class MainComponent implements OnInit {
   sliderImages = [];
 
   constructor() {
+    setInterval(() => {
+      this.slideRight();
+    }, 2000);
   }
 
   reset() {

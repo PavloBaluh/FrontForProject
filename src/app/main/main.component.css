@@ -21,7 +21,12 @@ body,
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
 }
+
+
+
+
 
 .slide1 {
   height: 607px;
@@ -76,4 +81,3 @@ body,
   right: 0;
   margin-right: 30px;
 }
-

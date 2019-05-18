@@ -70,14 +70,15 @@
     <div class="modal-body">
       <form #form="ngForm" id="form1">
         <label>Імя</label>
-        <input [(ngModel)]="formObj.name" name="name" id="name"  class="menu" required>
+        <input [(ngModel)]="formObj.name" pattern="^[а-яА-ЯёЁa]{3,15}$" name="name" id="name"  class="menu" required>
         <span></span>
         <br>
-        <label>Прізвище</label><input [(ngModel)]="formObj.surname" name="surname"  id="surname"  class="menu" required><span></span><br>
-        <label>Адреса</label><input [(ngModel)]="formObj.address"  id="city" name="address"  class="menu" required><span></span><br>
-        <label>Номер Телефону</label><input  [(ngModel)]="formObj.phoneNumber" name="date" type="text" class="menu" required><span></span><br>
+        <label>Прізвище</label><input [(ngModel)]="formObj.surname" pattern="[а-яА-ЯёЁa]{3,15}$"  name="surname"  id="surname"  class="menu" required><span></span><br>
+        <label>Адреса</label><input [(ngModel)]="formObj.address"  pattern="[а-яА-ЯёЁa -/0-9]{3,15}$"   id="city" name="address"  class="menu" required><span></span><br>
+        <label>Номер Телефону</label><input  [(ngModel)]="formObj.phoneNumber" pattern="[0-9]{12}" name="date" type="text" class="menu" required><span></span><br>
         <div class="button">
           <label class="qwe"><input (click)="makeOrder()" id="button" type="submit">Підтвердити</label>
+          <h1 style="color: red;font-size: 12px">{{error}}</h1>
         </div>
       </form>
     </div>
