@@ -9,6 +9,7 @@ export class Orders {
     public address: string = '',
     public  bonus: any = 0.0,
     public phoneNumber: string = '',
+    public sum = 0.0,
     public foods: Food[] = [],
   ) {
   }

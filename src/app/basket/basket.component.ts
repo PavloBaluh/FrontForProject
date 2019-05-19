@@ -18,7 +18,7 @@ export class BasketComponent implements OnInit {
   total = 0;
   totalWithBonus = 0;
   Img: any = '../../assets/restourant/';
-
+  isChacked = false;
   formObj = {
     name: '',
     surname: '',
@@ -51,12 +51,17 @@ export class BasketComponent implements OnInit {
       this.foods = foodsFromLocal;
       this.isDisabled = this.foods.length <= 0;
       this.total = this.getTotal(this.foods);
-      this.totalWithBonus = this.total - this.formObj.bonus;
+      this.totalWithBonus = this.total;
     } else {
       this.foods.splice(this.foods.indexOf(food), 1);
       this.service.deleteFood(food).subscribe((res) => {
         this.isDisabled = this.foods.length <= 0;
         this.total = this.getTotal(this.foods);
+        this.totalWithBonus = this.total - this.formObj.bonus;
+        if (this.totalWithBonus < 0) {
+          this.totalWithBonus = 0;
+        }
+
       });
     }
   }
@@ -65,7 +70,7 @@ export class BasketComponent implements OnInit {
     const a: User = this.service.getDecodedAccessToken();
     if (a === null) {
       this.foods = JSON.parse(localStorage.getItem('basket'));
-      if (this.foods.length === 0) {
+      if (this.foods === null) {
         this.isDisabled = true;
         this.total = 0;
         this.totalWithBonus = 0;
@@ -80,7 +85,10 @@ export class BasketComponent implements OnInit {
           this.foods = res;
           this.isDisabled = this.foods.length === 0;
           this.total = this.getTotal(this.foods);
-          this.totalWithBonus = this.total - this.formObj.bonus;
+          this.totalWithBonus = this.total;
+          if (this.totalWithBonus < 0) {
+            this.totalWithBonus = 0;
+          }
         }
       );
     }
@@ -159,6 +167,20 @@ export class BasketComponent implements OnInit {
     if (this.service.getDecodedAccessToken() === null) {
       this.bonusrow1.nativeElement.style.display = 'none';
       this.bonusrow2.nativeElement.style.display = 'none';
+    }
+  }
+
+  bonusBox(text1, text2) {
+    if (this.isChacked === false) {
+      text1.style.color = '#88AB31';
+      text2.style.color = '#88AB31';
+      this.totalWithBonus = this.total - this.formObj.bonus;
+      this.isChacked = true;
+    } else {
+      text1.style.color = '#888';
+      text2.style.color = '#888';
+      this.isChacked = false;
+      this.totalWithBonus = this.total;
     }
   }
 

@@ -35,7 +35,7 @@
             <p *ngFor="let food of order.foods">{{food.name + ' (X' +  food.quantity + ')'}}</p>
           </div>
           <div class="quantity">
-            <p>{{getTotal(order.foods)}}</p>
+            <p>{{order.sum | number:'1.0-1'}}</p>
           </div>
         </div>
       </div>

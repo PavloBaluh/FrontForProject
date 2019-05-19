@@ -45,16 +45,16 @@
         <p style="width:auto; font-size: 24px; color: black">{{total + '₴'}}</p>
       </div>
       <div #bonusrow1 class="price-sum price">
-        <span class="sum-text">Мої бонуси:</span>
-        <p style="width:auto; font-size: 24px; margin-right: 15px; color: black">{{(formObj.bonus | number:'1.1-2') + '₴'}}</p>
+        <span style="color: #888" #bonusrowText1 class="sum-text">Мої бонуси:</span>
+        <p #bonusrowText2 style="width:auto; font-size: 24px; margin-right: 15px; color: #888">{{(formObj.bonus | number:'1.0-1') + '₴'}}</p>
         <div>
-          <input type="checkbox" id="check" name="check" />
+          <input [disabled]=isDisabled (click)="bonusBox(bonusrowText1,bonusrowText2)" type="checkbox" id="check" name="check" />
           <label class="lbl" for="check"></label>
         </div>
       </div>
       <div class="price-sum price">
         <span class="sum-text">Загальна сумма:</span>
-        <p style="width:auto; font-size: 24px; color: black">{{totalWithBonus+ '₴'}}</p>
+        <p style="width:auto; font-size: 24px; color: black">{{(totalWithBonus | number:'1.0-1')+ '₴'}}</p>
       </div>
     </div>
   </div>
