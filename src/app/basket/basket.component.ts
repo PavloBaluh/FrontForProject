@@ -110,6 +110,8 @@ export class BasketComponent implements OnInit {
       }
       this.service.makeOrder(this.formObj, preperedFood).subscribe();
       localStorage.setItem('basket', JSON.stringify([]));
+      this.deleteAllFoods(this.foods);
+
       this.router.navigate(['']);
     } else {
       this.error = 'Данні введено не вірно Перевірте правильність і спробуйте ще раз';
@@ -187,6 +189,12 @@ export class BasketComponent implements OnInit {
       text2.style.color = '#888';
       this.isChacked = false;
       this.totalWithBonus = this.total;
+    }
+  }
+
+  deleteAllFoods(foods: Food[]) {
+    for (const food of foods) {
+      this.service.deleteFood(food).subscribe();
     }
   }
 
