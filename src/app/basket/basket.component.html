@@ -40,10 +40,21 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12  offset-md-3 col-md-6">
+      <div #bonusrow2  class="price-sum price">
+        <span class="sum-text">Сумма замовлення:</span>
+        <p style="width:auto; font-size: 24px; color: black">{{total + '₴'}}</p>
+      </div>
+      <div #bonusrow1 class="price-sum price">
+        <span class="sum-text">Мої бонуси:</span>
+        <p style="width:auto; font-size: 24px; margin-right: 15px; color: black">{{(formObj.bonus | number:'1.1-2') + '₴'}}</p>
+        <div>
+          <input type="checkbox" id="check" name="check" />
+          <label class="lbl" for="check"></label>
+        </div>
+      </div>
       <div class="price-sum price">
-
-        <span class="sum-text">Загальна сума:</span>
-        <p style="width:auto; font-size: 24px; color: black">{{total}}</p>
+        <span class="sum-text">Загальна сумма:</span>
+        <p style="width:auto; font-size: 24px; color: black">{{totalWithBonus+ '₴'}}</p>
       </div>
     </div>
   </div>
