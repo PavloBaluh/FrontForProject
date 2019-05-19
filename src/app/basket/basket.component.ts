@@ -3,6 +3,7 @@ import {MainService} from '../Services/main.service';
 import {Food} from '../Models/Food';
 import {User} from '../Models/User';
 import {Router} from '@angular/router';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-basket',
@@ -174,7 +175,11 @@ export class BasketComponent implements OnInit {
     if (this.isChacked === false) {
       text1.style.color = '#88AB31';
       text2.style.color = '#88AB31';
-      this.totalWithBonus = this.total - this.formObj.bonus;
+      if (this.formObj.bonus >= this.total) {
+        this.totalWithBonus = 0;
+      } else {
+        this.totalWithBonus = this.total - this.formObj.bonus;
+      }
       this.isChacked = true;
     } else {
       text1.style.color = '#888';
