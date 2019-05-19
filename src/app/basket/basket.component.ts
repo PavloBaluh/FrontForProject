@@ -71,7 +71,7 @@ export class BasketComponent implements OnInit {
     const a: User = this.service.getDecodedAccessToken();
     if (a === null) {
       this.foods = JSON.parse(localStorage.getItem('basket'));
-      if (this.foods === null) {
+      if (this.foods === null || this.foods.length === 0) {
         this.isDisabled = true;
         this.total = 0;
         this.totalWithBonus = 0;
@@ -109,6 +109,7 @@ export class BasketComponent implements OnInit {
         }
       }
       this.service.makeOrder(this.formObj, preperedFood).subscribe();
+      localStorage.setItem('basket', JSON.stringify([]));
       this.router.navigate(['']);
     } else {
       this.error = 'Данні введено не вірно Перевірте правильність і спробуйте ще раз';
