@@ -14,18 +14,27 @@
 </div>
 <h4>*За кожне замовлення вам нараховується бонус в розмірії 10% від вартості завмовлення</h4>
 
-  <form #form="ngForm" id="form1">
+  <form #form="ngForm" id="form1" enctype="multipart/form-data">
     <label>Імя</label>
     <input [(ngModel)]="formObj.name" pattern="^[а-яА-ЯёЁa]{3,15}$" name="name" id="name"  class="menu" required>
     <span></span>
+    <div class="img-container">
+      <img src="http://127.0.0.1:8887/Users/hp/Desktop/Work/Projects/images/userIcons/2c1a85313df568e00178b160722fac46.jpg">
+        <div id="file-upload">
+          <label>
+            <input ngModel (change)="InputFile($event.target.files)" type="file" name="file" id="uploade-file">
+            <span>Выберите файл</span>
+          </label>
+        </div>
+    </div>
     <br>
     <label>Прізвище</label><input [(ngModel)]="formObj.surname" pattern="^[а-яА-ЯёЁa]{3,15}$" name="surname"  id="surname"  class="menu" required><span></span><br>
     <label>Адреса</label><input [(ngModel)]="formObj.address" pattern="[а-яА-ЯёЁa -/0-9]{3,15}$"  id="city" name="address"  class="menu" required><span></span><br>
     <label>Номер Телефону</label><input  [(ngModel)]="formObj.phoneNumber" pattern="[0-9]{12}" name="date" type="text" class="menu" required ><span></span><br>
-    <div class="button">
-    <label class="qwe"><input (click)="save()" id="button" type="submit">Зберегти</label>
-      <h1 style="color: red;font-size: 12px">{{error}}</h1>
-      <h1 style="color: green;font-size: 15px;margin-right: -20px">{{currect}}</h1>
-    </div>
   </form>
+  <div class="button">
+    <label class="qwe"><input (click)="save(form)" id="button" type="submit">Зберегти</label>
+    <h1 style="color: red;font-size: 12px">{{error}}</h1>
+    <h1 style="color: green;font-size: 15px;margin-right: -20px">{{currect}}</h1>
+  </div>
 </div>

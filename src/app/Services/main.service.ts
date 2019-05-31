@@ -34,7 +34,6 @@ export class MainService {
 
 
   register(user: string, pass: string, mail: string) {
-    console.log('hello');
     const headers = new HttpHeaders({username: user, password: pass, email: mail});
     return this.http.post(this.apiUrl + 'register', {}, {headers, responseType: 'text'});
   }
@@ -94,6 +93,16 @@ export class MainService {
     return this.http.post(this.apiUrl + 'updateUserInfo', JSON.stringify(obj), {headers});
 
   }
+
+
+  postFile(fileToUpload: File) {
+    console.log(File);
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    return this.http.post(this.apiUrl + 'fileUpload', formData, {headers});
+  }
+
 
   getByType(type: string): Observable<Food[]> {
     return this.http.get<Food[]>(this.apiUrl + 'restaurant/product-category/' + type);
