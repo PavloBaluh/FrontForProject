@@ -95,12 +95,12 @@ export class MainService {
   }
 
 
-  postFile(fileToUpload: File) {
-    console.log(File);
+  postFile(fileToUpload: File)  {
+    console.log(fileToUpload);
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     const formData: FormData = new FormData();
     formData.append('fileKey', fileToUpload, fileToUpload.name);
-    return this.http.post(this.apiUrl + 'fileUpload', formData, {headers});
+    return this.http.post(this.apiUrl + 'fileUpload', formData, {headers, responseType : 'text'});
   }
 
 

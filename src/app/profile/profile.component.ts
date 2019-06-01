@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MainService} from '../Services/main.service';
 import {any} from 'codelyzer/util/function';
 import {fakeAsync} from '@angular/core/testing';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -9,8 +10,10 @@ import {fakeAsync} from '@angular/core/testing';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  private imageType = 'data:image/PNG;base64,';
   error = '';
   currect = '';
+  img: any;
 
   formObj = {
     name: '',
@@ -22,15 +25,19 @@ export class ProfileComponent implements OnInit {
   };
 
 
-  constructor(private  service: MainService) {
+  constructor(private  service: MainService, private sanitizer: DomSanitizer) {
   }
 
   save() {
-    this.service.postFile(this.formObj.picture).subscribe();
     if (this.formObj.name.match('[а-яА-ЯёЁa]{3,15}$') && this.formObj.surname.match('[а-яА-ЯёЁa]{3,15}$')
       && this.formObj.address.match('[а-яА-ЯёЁa -/0-9]{3,15}$') && this.formObj.phoneNumber.match('[0-9]{12}')) {
-      console.log(this.formObj.picture);
+      this.service.postFile(this.formObj.picture).subscribe((res) => {
+        console.log(this.imageType + res);
+        let url = this.imageType + res;
+        this.img = this.sanitizer.bypassSecurityTrustUrl(url);
+      });
       const obj = this.formObj;
+      console.log(this.formObj.picture);
       obj.picture = obj.picture.name;
       this.service.updateUserInfo(obj).subscribe(() => {
         this.currect = 'Збережено';
