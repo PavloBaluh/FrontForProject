@@ -3,6 +3,7 @@ import {MainService} from '../Services/main.service';
 import {any} from 'codelyzer/util/function';
 import {fakeAsync} from '@angular/core/testing';
 import {DomSanitizer} from '@angular/platform-browser';
+import {applySourceSpanToExpressionIfNeeded} from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-profile',
@@ -31,15 +32,11 @@ export class ProfileComponent implements OnInit {
   save() {
     if (this.formObj.name.match('[а-яА-ЯёЁa]{3,15}$') && this.formObj.surname.match('[а-яА-ЯёЁa]{3,15}$')
       && this.formObj.address.match('[а-яА-ЯёЁa -/0-9]{3,15}$') && this.formObj.phoneNumber.match('[0-9]{12}')) {
-      this.service.postFile(this.formObj.picture).subscribe((res) => {
-        console.log(this.imageType + res);
-        let url = this.imageType + res;
-        this.img = this.sanitizer.bypassSecurityTrustUrl(url);
-      });
-      const obj = this.formObj;
-      console.log(this.formObj.picture);
-      obj.picture = obj.picture.name;
-      this.service.updateUserInfo(obj).subscribe(() => {
+      if (this.formObj.picture != null) {
+        this.savePicture();
+      }
+      console.log(this.img.name);
+      this.service.updateUserInfo(this.formObj).subscribe(() => {
         this.currect = 'Збережено';
         setTimeout(() => {
           this.currect = '';
@@ -53,16 +50,40 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  savePicture() {
+    this.service.postFile(this.formObj.picture).subscribe((res) => {
+      const url = this.imageType + res;
+      this.img = this.sanitizer.bypassSecurityTrustUrl(url);
+    });
+  }
+
+
   ngOnInit() {
     this.service.getUserInfo().subscribe((res) => {
       if (res != null) {
         // @ts-ignore
         this.formObj = res;
+        if (this.formObj.picture === null) {
+          this.img = '../../assets/man_user.png';
+        } else {
+          this.service.getUserImage(this.formObj.picture).subscribe((res1) => {
+            let url = this.imageType + res1;
+            this.img = this.sanitizer.bypassSecurityTrustUrl(url);
+          });
+        }
+      } else {
+        this.img = '../../assets/man_user.png';
       }
     });
   }
 
-  InputFile(files: FileList) {
+  InputFile(files: FileList, imgs) {
     this.formObj.picture = files.item(0);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const img = reader.result;
+      imgs.src = img;
+    };
+    reader.readAsDataURL(files.item(0));
   }
 }

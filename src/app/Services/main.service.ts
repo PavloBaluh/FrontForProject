@@ -90,17 +90,29 @@ export class MainService {
 
   updateUserInfo(obj) {
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
-    return this.http.post(this.apiUrl + 'updateUserInfo', JSON.stringify(obj), {headers});
+    return this.http.post(this.apiUrl + 'updateUserInfo', JSON.stringify({
+      id: obj.id,
+      name: obj.name,
+      surname: obj.surname,
+      phoneNumber: obj.phoneNumber,
+      address: obj.address,
+      bonus: obj.bonus,
+      picture: obj.picture.name
+    }), {headers});
 
   }
 
 
-  postFile(fileToUpload: File)  {
-    console.log(fileToUpload);
+  postFile(fileToUpload: File) {
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     const formData: FormData = new FormData();
     formData.append('fileKey', fileToUpload, fileToUpload.name);
-    return this.http.post(this.apiUrl + 'fileUpload', formData, {headers, responseType : 'text'});
+    return this.http.post(this.apiUrl + 'fileUpload', formData, {headers, responseType: 'text'});
+  }
+
+  getUserImage(imgName) {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get(this.apiUrl + 'getUserImage/' + imgName, {headers, responseType: 'text'});
   }
 
 

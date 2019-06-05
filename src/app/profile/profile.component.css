@@ -235,6 +235,7 @@ form
   .qwe:hover{
     background-color: green;
     color: white;
+    cursor: pointer;
   }
   #button {
     display: none;
@@ -267,15 +268,12 @@ form
   overflow: hidden;
   width: 250px;
   height: 40px;
-  background: #4169E1;
+  background: #88AB31;
   border-radius: 10px;
   color: #fff;
   text-align: center;
 }
 
-#file-upload:hover {
-  background: #1E90FF;
-}
 
 #file-upload label {
   display: block;

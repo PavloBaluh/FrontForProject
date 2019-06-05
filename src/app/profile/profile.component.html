@@ -1,40 +1,45 @@
 <div class="block">
-<div class="content-container">
-  <div class="content-wrap justify-content-center"></div>
-</div>
+  <div class="content-container">
+    <div class="content-wrap justify-content-center"></div>
+  </div>
   <div class="hr-block-02">
     <hr>
     <h3 class="text-center">Мій Профіль</h3>
     <hr>
   </div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="mb-3 text-center h3">Мої бонуси: <strong style="color: #5cab7d">{{(formObj.bonus | number:'1.1-2')}}<small>грн.</small></strong></div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mb-3 text-center h3">Мої бонуси: <strong style="color: #5cab7d">{{(formObj.bonus | number:'1.1-2')}}
+        <small>грн.</small>
+      </strong></div>
+    </div>
   </div>
-</div>
-<h4>*За кожне замовлення вам нараховується бонус в розмірії 10% від вартості завмовлення</h4>
+  <h4>*За кожне замовлення вам нараховується бонус в розмірії 10% від вартості завмовлення</h4>
 
   <form #form="ngForm" id="form1" enctype="multipart/form-data">
     <label>Імя</label>
-    <input [(ngModel)]="formObj.name" pattern="^[а-яА-ЯёЁa]{3,15}$" name="name" id="name"  class="menu" required>
+    <input [(ngModel)]="formObj.name" pattern="^[а-яА-ЯёЁa]{3,15}$" name="name" id="name" class="menu" required>
     <span></span>
     <div class="img-container">
-      <img style="height: 150px; width: 200px;" [src]="img">
-        <div id="file-upload">
-          <label>
-            <input ngModel (change)="InputFile($event.target.files)" type="file" name="file" id="uploade-file">
-            <span>Выберите файл</span>
-          </label>
-        </div>
+      <img #imgs style="height: 150px; width: 200px;" [src]="img">
+      <div id="file-upload">
+        <label>
+          <input ngModel (change)="InputFile($event.target.files, imgs)" type="file" name="file" id="uploade-file">
+          <span>Виберіть Файл</span>
+        </label>
+      </div>
     </div>
     <br>
-    <label>Прізвище</label><input [(ngModel)]="formObj.surname" pattern="^[а-яА-ЯёЁa]{3,15}$" name="surname"  id="surname"  class="menu" required><span></span><br>
-    <label>Адреса</label><input [(ngModel)]="formObj.address" pattern="[а-яА-ЯёЁa -/0-9]{3,15}$"  id="city" name="address"  class="menu" required><span></span><br>
-    <label>Номер Телефону</label><input  [(ngModel)]="formObj.phoneNumber" pattern="[0-9]{12}" name="date" type="text" class="menu" required ><span></span><br>
+    <label>Прізвище</label><input [(ngModel)]="formObj.surname" pattern="^[а-яА-ЯёЁa]{3,15}$" name="surname"
+                                  id="surname" class="menu" required><span></span><br>
+    <label>Адреса</label><input [(ngModel)]="formObj.address" pattern="[а-яА-ЯёЁa -/0-9]{3,15}$" id="city"
+                                name="address" class="menu" required><span></span><br>
+    <label>Номер Телефону</label><input [(ngModel)]="formObj.phoneNumber" pattern="[0-9]{12}" name="date" type="text"
+                                        class="menu" required><span></span><br>
   </form>
   <div class="button">
     <label class="qwe"><input (click)="save(form)" id="button" type="submit">Зберегти</label>
     <h1 style="color: red;font-size: 12px">{{error}}</h1>
-    <h1 style="color: green;font-size: 15px;margin-right: -20px">{{currect}}</h1>
+    <h1 style="color: green;font-size: 15px">{{currect}}</h1>
   </div>
 </div>
