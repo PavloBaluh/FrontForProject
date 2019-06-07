@@ -32,10 +32,10 @@ export class ProfileComponent implements OnInit {
   save() {
     if (this.formObj.name.match('[а-яА-ЯёЁa]{3,15}$') && this.formObj.surname.match('[а-яА-ЯёЁa]{3,15}$')
       && this.formObj.address.match('[а-яА-ЯёЁa -/0-9]{3,15}$') && this.formObj.phoneNumber.match('[0-9]{12}')) {
-      if (this.formObj.picture != null) {
+      console.log(this.formObj.picture);
+      if (this.formObj.picture != null && typeof this.formObj.picture === 'object') {
         this.savePicture();
       }
-      console.log(this.img.name);
       this.service.updateUserInfo(this.formObj).subscribe(() => {
         this.currect = 'Збережено';
         setTimeout(() => {

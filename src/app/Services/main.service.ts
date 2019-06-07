@@ -97,7 +97,6 @@ export class MainService {
       phoneNumber: obj.phoneNumber,
       address: obj.address,
       bonus: obj.bonus,
-      picture: obj.picture.name
     }), {headers});
 
   }
