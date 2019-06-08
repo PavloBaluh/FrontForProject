@@ -10,16 +10,23 @@ import {Orders} from '../Models/Orders';
   providedIn: 'root'
 })
 export class MainService {
-  apiUrl = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) {
   }
+  apiUrl = 'http://localhost:8080/';
 
   private emitChangeSource = new Subject<any>();
   changeEmitted$ = this.emitChangeSource.asObservable();
 
+  private emitChangeSourcePicture = new Subject<any>();
+  changeEmittedPicture$ = this.emitChangeSourcePicture.asObservable();
+
   emitChange(name: string) {
     this.emitChangeSource.next(name);
+  }
+
+  emitChangePicture(name: string) {
+    this.emitChangeSourcePicture.next(name);
   }
 
   getDecodedAccessToken(): User {

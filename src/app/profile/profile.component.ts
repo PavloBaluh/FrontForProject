@@ -69,6 +69,7 @@ export class ProfileComponent implements OnInit {
           this.service.getUserImage(this.formObj.picture).subscribe((res1) => {
             let url = this.imageType + res1;
             this.img = this.sanitizer.bypassSecurityTrustUrl(url);
+            this.service.emitChangePicture(this.img);
           });
         }
       } else {

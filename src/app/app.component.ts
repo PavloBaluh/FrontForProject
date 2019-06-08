@@ -13,6 +13,7 @@ import * as jwt_decode from 'jwt-decode';
 
 @Injectable()
 export class AppComponent implements OnInit {
+  userImg = '../assets/man_user.png';
   user: string;
   dis = true;
 
@@ -23,6 +24,12 @@ export class AppComponent implements OnInit {
         this.dis = true;
       } else {
         this.dis = false;
+      }
+    });
+    service.changeEmittedPicture$.subscribe((data) => {
+      console.log(data);
+      if (data != null) {
+        this.userImg = data;
       }
     });
   }
