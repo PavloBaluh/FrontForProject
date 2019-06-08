@@ -33,7 +33,6 @@ export class MainComponent implements OnInit {
 
   reset() {
     this.sliderImages = [this.slide1, this.slide2, this.slide3, this.slide4, this.slide5];
-    console.log(this.sliderImages);
     for (let i = 0; i < this.sliderImages.length; i++) {
       this.sliderImages[i].nativeElement.style.display = 'none';
     }

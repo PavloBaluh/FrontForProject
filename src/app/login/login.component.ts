@@ -28,6 +28,12 @@ export class LoginComponent {
       if (a !== null) {
         this.user = a;
         this.service.emitChange(this.user.sub);
+        this.service.getUserInfo().subscribe((res) => {
+          // @ts-ignore
+          this.service.getUserImage(res.picture).subscribe((img) => {
+            this.service.emitChangePicture(img);
+          });
+        });
         this.router.navigate(['']);
 
       } else {

@@ -39,7 +39,7 @@
   </form>
   <div class="button">
     <label class="qwe"><input (click)="save(form)" id="button" type="submit">Зберегти</label>
-    <h1 style="color: red;font-size: 12px">{{error}}</h1>
-    <h1 style="color: green;font-size: 15px">{{currect}}</h1>
   </div>
+  <h1 #error style="color: red;font-size: 12px;display: none;position: absolute; bottom: 20px">Данні введено не вірно Перевірте правильність і спробуйте ще раз</h1>
+  <h1 #correct style="color: green;font-size: 15px; display: none;position: absolute; bottom: 20px">Збережено</h1>
 </div>

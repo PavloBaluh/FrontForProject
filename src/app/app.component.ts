@@ -27,7 +27,6 @@ export class AppComponent implements OnInit {
       }
     });
     service.changeEmittedPicture$.subscribe((data) => {
-      console.log(data);
       if (data != null) {
         this.userImg = data;
       }
@@ -42,6 +41,7 @@ export class AppComponent implements OnInit {
     } else {
       this.dis = true;
       this.user = ('f');
+      this.userImg = '../assets/man_user.png';
     }
   }
 

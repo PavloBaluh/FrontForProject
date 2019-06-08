@@ -5,13 +5,15 @@ import {Food} from '../Models/Food';
 import * as jwt_decode from 'jwt-decode';
 import {User} from '../Models/User';
 import {Orders} from '../Models/Orders';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
+  private imageType = 'data:image/PNG;base64,';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
   }
   apiUrl = 'http://localhost:8080/';
 
@@ -26,7 +28,7 @@ export class MainService {
   }
 
   emitChangePicture(name: string) {
-    this.emitChangeSourcePicture.next(name);
+    this.emitChangeSourcePicture.next( this.sanitizer.bypassSecurityTrustUrl(this.imageType + name));
   }
 
   getDecodedAccessToken(): User {

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MainService} from '../Services/main.service';
 import {any} from 'codelyzer/util/function';
 import {fakeAsync} from '@angular/core/testing';
@@ -11,9 +11,9 @@ import {applySourceSpanToExpressionIfNeeded} from '@angular/compiler/src/output/
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  @ViewChild('correct') correct: ElementRef;
+  @ViewChild('error') error: ElementRef;
   private imageType = 'data:image/PNG;base64,';
-  error = '';
-  currect = '';
   img: any;
 
   formObj = {
@@ -37,15 +37,15 @@ export class ProfileComponent implements OnInit {
         this.savePicture();
       }
       this.service.updateUserInfo(this.formObj).subscribe(() => {
-        this.currect = 'Збережено';
+        this.correct.nativeElement.style.display = 'block';
         setTimeout(() => {
-          this.currect = '';
+          this.correct.nativeElement.style.display = 'none';
         }, 3000);
       });
     } else {
-      this.error = 'Данні введено не вірно Перевірте правильність і спробуйте ще раз';
+      this.error.nativeElement.style.display = 'block';
       setTimeout(() => {
-        this.error = '';
+        this.error.nativeElement.style.display = 'none';
       }, 3000);
     }
   }
@@ -54,6 +54,7 @@ export class ProfileComponent implements OnInit {
     this.service.postFile(this.formObj.picture).subscribe((res) => {
       const url = this.imageType + res;
       this.img = this.sanitizer.bypassSecurityTrustUrl(url);
+      this.service.emitChangePicture(res);
     });
   }
 
@@ -69,7 +70,7 @@ export class ProfileComponent implements OnInit {
           this.service.getUserImage(this.formObj.picture).subscribe((res1) => {
             let url = this.imageType + res1;
             this.img = this.sanitizer.bypassSecurityTrustUrl(url);
-            this.service.emitChangePicture(this.img);
+            this.service.emitChangePicture(res1);
           });
         }
       } else {
