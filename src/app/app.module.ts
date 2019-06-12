@@ -15,7 +15,9 @@ import {ProfileComponent} from './profile/profile.component';
 import {InfoComponent} from './info/info.component';
 import {Ng2CarouselamosModule} from 'ng2-carouselamos';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { HistoryComponent } from './history/history.component';
+import {HistoryComponent} from './history/history.component';
+import {AdminModule} from './admin/admin.module';
+import {AdminLoginPageComponent} from './admin/admin-login-page/admin-login-page.component';
 
 
 const routes: Routes = [
@@ -27,7 +29,8 @@ const routes: Routes = [
   {path: 'basket', component: BasketComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'info', component: InfoComponent},
-  {path: 'history', component: HistoryComponent}
+  {path: 'history', component: HistoryComponent},
+  {path: 'adminLoginPage', component: AdminLoginPageComponent},
 ];
 
 
@@ -51,6 +54,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

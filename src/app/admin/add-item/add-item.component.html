@@ -1,0 +1,27 @@
+<div class="container">
+  <form #form="ngForm" id="form1" enctype="multipart/form-data">
+    <label>Назва</label>
+    <input [(ngModel)]="formObj.name"  name="name" id="name" class="menu" required>
+    <div class="img-container">
+      <img #imgs style="height: 150px; width: 200px;  border-radius: 10px 10px 0 0" [src]="img">
+      <div id="file-upload">
+        <label>
+          <input ngModel (change)="InputFile($event.target.files, imgs)" type="file" name="file" id="uploade-file">
+          <span>Виберіть Файл</span>
+        </label>
+      </div>
+    </div>
+    <br>
+    <label>Тип</label><input [(ngModel)]="formObj.type"  name="surname"
+                                  id="surname" class="menu" required><br>
+    <label>Вага</label><input [(ngModel)]="formObj.weight" id="city"
+                                name="address" class="menu" required><br>
+    <label>Описання</label><input [(ngModel)]="formObj.description"  name="date" type="text"
+                                        class="menu" required><br>
+  </form>
+  <div class="button">
+    <label class="qwe"><input (click)="save(form)" id="button" type="submit">Зберегти</label>
+  </div>
+  <h1 #error style="color: red;font-size: 12px;display: none;position: absolute; bottom: 20px">Данні введено не вірно Перевірте правильність і спробуйте ще раз</h1>
+  <h1 #correct style="color: green;font-size: 15px; display: none;position: absolute; bottom: 20px">Збережено</h1>
+</div>

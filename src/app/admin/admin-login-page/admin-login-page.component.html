@@ -1,0 +1,23 @@
+<div class="register">
+  <div class="user">
+    <header class="user__header">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+      <h1 class="user__title">{{header}}</h1>
+      <h1 class="error" *ngIf="(user.touched && user.errors?.pattern) || (pass.touched && pass.errors?.pattern)">
+        І'мя користувача і пароль повинні містити лише  латинські букви і цифри, і включати як мінімум 3 символа
+      </h1>
+    </header>
+
+    <form #form = "ngForm" class="form">
+      <div class="form__group">
+        <input #user = "ngModel" name="user" [(ngModel)]="obj.username" pattern="^[a-zA-Z0-9]{3,15}$" type="text" placeholder="І'мя користувача" class="form__input" />
+      </div>
+
+      <div class="form__group">
+        <input #pass = "ngModel" name="pass"   [(ngModel)]="obj.password" pattern="^[a-zA-Z0-9]{3,15}$" type="password" placeholder="Пароль" class="form__input" />
+      </div>
+
+      <button class="btn" type="button" (click)="sendData()">Підтвердити</button>
+    </form>
+  </div>
+</div>
