@@ -12,15 +12,23 @@
       </div>
     </div>
     <br>
-    <label>Тип</label><input [(ngModel)]="formObj.type"  name="surname"
-                                  id="surname" class="menu" required><br>
+    <label>Тип</label><select required [(ngModel)]="formObj.type" name="type">
+    <option value="SALAD">Салат</option>
+    <option value="PIZZA">Піцца</option>
+    <option value="SUSHI">Суші</option>
+    <option value="SOUP">Суп</option>
+    <option value="DRINKS">Напій</option>
+    <option value="DESERT">Десерт</option>
+  </select><br>
     <label>Вага</label><input [(ngModel)]="formObj.weight" id="city"
-                                name="address" class="menu" required><br>
-    <label>Описання</label><input [(ngModel)]="formObj.description"  name="date" type="text"
+                                name="weight" class="menu" required><br>
+    <label>Описання</label><input [(ngModel)]="formObj.description"  name="description" type="text"
                                         class="menu" required><br>
+    <label>Ціна</label><input [(ngModel)]="formObj.price"  name="surname"
+                             id="price" class="menu" required><br>
   </form>
   <div class="button">
-    <label class="qwe"><input (click)="save(form)" id="button" type="submit">Зберегти</label>
+    <label class="qwe"><input (click)="save()" id="button" type="submit">Зберегти</label>
   </div>
   <h1 #error style="color: red;font-size: 12px;display: none;position: absolute; bottom: 20px">Данні введено не вірно Перевірте правильність і спробуйте ще раз</h1>
   <h1 #correct style="color: green;font-size: 15px; display: none;position: absolute; bottom: 20px">Збережено</h1>

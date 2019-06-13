@@ -1,5 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild,} from '@angular/core';
 import {element} from 'protractor';
+import {MainService} from '../Services/main.service';
 
 
 @Component({

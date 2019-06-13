@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AdminService} from '../../Services/admin.service';
 
 @Component({
   selector: 'app-add-item',
@@ -12,10 +13,32 @@ export class AddItemComponent implements OnInit {
     weight: '',
     picture: File = null,
     description: '',
+    price: 0
   };
-  constructor() { }
 
-  ngOnInit() {
+  constructor(private service: AdminService) {
   }
 
+  ngOnInit() {
+    console.log(typeof this.formObj);
+  }
+
+  save() {
+    this.service.addDish(this.formObj).subscribe();
+    this.savePicture();
+  }
+
+  savePicture() {
+    this.service.saveImage(this.formObj.picture).subscribe();
+  }
+
+  InputFile(files: FileList, imgs) {
+    this.formObj.picture = files.item(0);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const img = reader.result;
+      imgs.src = img;
+    };
+    reader.readAsDataURL(files.item(0));
+  }
 }

@@ -9,6 +9,11 @@
   width: 50%;
   margin: 0 auto;
 }
+ select{
+   width: 153px;
+   height: 22px;
+}
+
 
 label, p {
   display: inline-block;
@@ -36,7 +41,7 @@ p {
 
 .menu, .picinput {
   width: 150px;
-}
+ }
 
 .button {
   width: 100%;
