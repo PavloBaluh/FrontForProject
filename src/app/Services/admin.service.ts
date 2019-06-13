@@ -25,6 +25,7 @@ export class AdminService {
       price: obj.price,
       description: obj.description,
       type: obj.type,
+      picture: obj.picture.name
     }), {headers, responseType: 'text'});
   }
 
