@@ -8,12 +8,16 @@
   </div>
   <div class="content">
     <div class="content-header">
-      <h1>{{food.name}}</h1>
+      <h1 style="margin: 0 auto">{{food.name}}</h1>
     </div>
     <div class="content-discription">
-    <p>{{food.description}}</p>
-    </div>
+    <p style="margin-top: 10px;margin-bottom: 0"><b style="color: black">Опис: </b>{{food.description}}</p>
+      <p style="margin-top: 10px;margin-bottom: 0"><b style="color: black">Вага: </b>{{food.weight}}гр.</p>
+      <p style="margin-top: 10px;margin-bottom: 0"><b style="color: black">Ціна: </b>{{food.price}}₴.</p>
+</div>
+    <div class="flex">
     <button (click)="Inbasket(food)"  class="submit-btn" type="submit">Оформити замовлення </button>
+    </div>
   </div>
 </div>
 

@@ -17,7 +17,6 @@ import {Ng2CarouselamosModule} from 'ng2-carouselamos';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HistoryComponent} from './history/history.component';
 import {AdminModule} from './admin/admin.module';
-import {AdminLoginPageComponent} from './admin/admin-login-page/admin-login-page.component';
 
 
 const routes: Routes = [
@@ -30,7 +29,6 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'info', component: InfoComponent},
   {path: 'history', component: HistoryComponent},
-  {path: 'adminLoginPage', component: AdminLoginPageComponent},
 ];
 
 

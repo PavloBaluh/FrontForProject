@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AdminService} from '../../Services/admin.service';
 
 @Component({
@@ -7,6 +7,8 @@ import {AdminService} from '../../Services/admin.service';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
+  @ViewChild('correct') correct: ElementRef;
+  @ViewChild('error') error: ElementRef;
   formObj = {
     name: '',
     type: '',
@@ -24,7 +26,22 @@ export class AddItemComponent implements OnInit {
   }
 
   save() {
-    this.service.addDish(this.formObj).subscribe();
+    if (this.formObj.name.match('[А-Яа-яёЁЇїІіЄєҐґ]{2,15}$') && this.formObj.type.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}$')
+      && this.formObj.description.match('[а-яА-А-Яа-яёЁЇїІіЄєҐґ -/0-9]{3,15}$')) {
+    }
+    this.service.addDish(this.formObj).subscribe((res) => {
+      if (res === 'OK') {
+        this.correct.nativeElement.style.display = 'block';
+        setTimeout(() => {
+          this.correct.nativeElement.style.display = 'none';
+        }, 3000);
+      } else {
+        this.error.nativeElement.style.display = 'block';
+        setTimeout(() => {
+          this.error.nativeElement.style.display = 'none';
+        }, 3000);
+      }
+    });
     this.savePicture();
   }
 

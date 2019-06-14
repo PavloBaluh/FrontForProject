@@ -30,9 +30,8 @@ export class ProfileComponent implements OnInit {
   }
 
   save() {
-    if (this.formObj.name.match('[а-яА-ЯёЁa]{3,15}$') && this.formObj.surname.match('[а-яА-ЯёЁa]{3,15}$')
-      && this.formObj.address.match('[а-яА-ЯёЁa -/0-9]{3,15}$') && this.formObj.phoneNumber.match('[0-9]{12}')) {
-      console.log(this.formObj.picture);
+    if (this.formObj.name.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}$') && this.formObj.surname.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}$')
+      && this.formObj.address.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}\s?\d{1,3}-?\d{0,3}') && this.formObj.phoneNumber.match('[\\(]?0[0-9]{2}[\\)]{0,1}\\s?\\d{3}[-]{0,1}\\d{2}[-]{0,1}\\d{2}')) {
       if (this.formObj.picture != null && typeof this.formObj.picture === 'object') {
         this.savePicture();
       }

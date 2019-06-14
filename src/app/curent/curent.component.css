@@ -52,6 +52,12 @@ img{
   margin-bottom: 10px;
   outline: none;
 }
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
 @media (min-width: 768px){
   .col-md-6 {
     flex: 0 0 50%;

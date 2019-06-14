@@ -15,6 +15,7 @@ export class MainService {
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
   }
+
   apiUrl = 'http://localhost:8080/';
 
   private emitChangeSource = new Subject<any>();
@@ -28,7 +29,7 @@ export class MainService {
   }
 
   emitChangePicture(name: string) {
-    this.emitChangeSourcePicture.next( this.sanitizer.bypassSecurityTrustUrl(this.imageType + name));
+    this.emitChangeSourcePicture.next(this.sanitizer.bypassSecurityTrustUrl(this.imageType + name));
   }
 
   getDecodedAccessToken(): User {
@@ -39,6 +40,11 @@ export class MainService {
     } catch (Error) {
       return null;
     }
+  }
+
+  getPermissions() {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get(this.apiUrl + 'getPermissions', {headers, responseType: 'text'});
   }
 
 

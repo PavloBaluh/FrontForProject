@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AdminLoginPageComponent} from './admin-login-page/admin-login-page.component';
 import {AppModule} from '../app.module';
 import {FormsModule} from '@angular/forms';
 import {AdminMainComponent} from './admin-main/admin-main.component';
@@ -17,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AdminLoginPageComponent, AdminMainComponent, AddItemComponent, DeleteItemComponent],
+  declarations: [ AdminMainComponent, AddItemComponent, DeleteItemComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MainService} from '../Services/main.service';
 import {Router} from '@angular/router';
 import {User} from '../Models/User';
+import {subscribeOn} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -28,13 +29,24 @@ export class LoginComponent {
       if (a !== null) {
         this.user = a;
         this.service.emitChange(this.user.sub);
-        this.service.getUserInfo().subscribe((res) => {
-          // @ts-ignore
-          this.service.getUserImage(res.picture).subscribe((img) => {
-            this.service.emitChangePicture(img);
-          });
+        this.service.getUserInfo().subscribe((res1) => {
+          if (res1 !== null) {
+            // @ts-ignore
+            if (res1.picture !== null) {
+              // @ts-ignore
+              this.service.getUserImage(res1.picture).subscribe((img) => {
+                this.service.emitChangePicture(img);
+              });
+            }
+          }
         });
-        this.router.navigate(['']);
+        this.service.getPermissions().subscribe((res2) => {
+          if (res2 === 'ROLE_ADMIN') {
+            this.router.navigate(['adminMain/addItem']);
+          } else {
+            this.router.navigate(['']);
+          }
+        });
 
       } else {
         this.header = 'Не вірне імя користувача або пароль';
