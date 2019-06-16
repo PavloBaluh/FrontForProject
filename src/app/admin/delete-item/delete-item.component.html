@@ -1,3 +1,12 @@
-<p>
-  delete-item works!
-</p>
+<div class="container">
+  <h1 class="title">Введіть назву товару для видалення</h1>
+  <form ngForm style="text-align: center; margin-top: 10px">
+  <input style="width: 25%; margin-bottom: 10px" [(ngModel)]="formObj.name"  type="text" name="name">
+    <div class="button">
+      <label class="qwe"><input (click)="deleteItem()" id="button" type="submit">Підтвердити</label>
+    </div>
+  </form>
+
+  <h1 #error style="color: red;font-size: 12px;display: none; text-align: center">Товар не знайдено</h1>
+  <h1 #correct style="color: green;font-size: 15px; display: none;text-align: center">Товар видалено</h1>
+</div>

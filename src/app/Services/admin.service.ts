@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Orders} from '../Models/Orders';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +31,21 @@ export class AdminService {
     }), {headers, responseType: 'text'});
   }
 
+  deleteDish(name) {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.post(this.apiUrl + 'deleteDish', JSON.stringify(name), {headers, responseType: 'text'});
+  }
+
   saveImage(fileToUpload: File) {
     const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
     const formData: FormData = new FormData();
     formData.append('fileKey', fileToUpload, fileToUpload.name);
     return this.http.post(this.apiUrl + 'saveDishPicture', formData, {headers, responseType: 'text'});
+  }
+
+  getOrders(): Observable<Orders[]> {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get<Orders[]>(this.apiUrl + 'getOrders', {headers});
   }
 
 }

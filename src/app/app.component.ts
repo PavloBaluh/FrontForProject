@@ -18,19 +18,6 @@ export class AppComponent implements OnInit {
   dis = true;
 
   constructor(private service: MainService, private Activatedroute: ActivatedRoute) {
-    service.changeEmitted$.subscribe(data => {
-      this.user = data;
-      if (this.user === 'f') {
-        this.dis = true;
-      } else {
-        this.dis = false;
-      }
-    });
-    service.changeEmittedPicture$.subscribe((data) => {
-      if (data != null) {
-        this.userImg = data;
-      }
-    });
   }
 
   ngOnInit() {
@@ -40,9 +27,35 @@ export class AppComponent implements OnInit {
       this.dis = false;
     } else {
       this.dis = true;
-      this.user = ('f');
+      this.user = null;
       this.userImg = '../assets/man_user.png';
     }
+    this.service.changeEmitted$.subscribe(data => {
+      this.user = data;
+      if (this.user === null) {
+        this.dis = true;
+      } else {
+        this.dis = false;
+      }
+    });
+    if (this.user !== null) {
+      this.service.getUserInfo().subscribe((res1) => {
+        if (res1 !== null) {
+          // @ts-ignore
+          if (res1.picture !== null) {
+            // @ts-ignore
+            this.service.getUserImage(res1.picture).subscribe((img) => {
+              this.service.emitChangePicture(img);
+            });
+          }
+        }
+      });
+    }
+    this.service.changeEmittedPicture$.subscribe((data) => {
+      if (data != null) {
+        this.userImg = data;
+      }
+    });
   }
 
   logout() {

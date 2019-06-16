@@ -1,0 +1,32 @@
+.container{
+  min-height: 350px;
+}
+.qwe {
+  color: #313131;
+  background-color: #fff;
+  -webkit-appearance: button;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  margin: 0;
+}
+#button {
+  display: none;
+}
+.qwe:hover{
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+.title{
+  font-size: 20px;
+  color: black;
+  text-align: center;
+}

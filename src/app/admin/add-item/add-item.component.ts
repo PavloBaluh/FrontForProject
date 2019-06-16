@@ -1,5 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AdminService} from '../../Services/admin.service';
+import {MainService} from '../../Services/main.service';
+import {Router} from '@angular/router';
+import {User} from '../../Models/User';
 
 @Component({
   selector: 'app-add-item',
@@ -18,31 +21,51 @@ export class AddItemComponent implements OnInit {
     price: 0
   };
 
-  constructor(private service: AdminService) {
+  constructor(private router: Router, private service: AdminService, private service02: MainService) {
+    const a: User = this.service02.getDecodedAccessToken();
+    if (a !== null) {
+      service02.getPermissions().subscribe((res) => {
+        if (res !== 'ROLE_ADMIN' || res == null) {
+          this.router.navigate(['']);
+        }
+      });
+    } else {
+      this.router.navigate(['']);
+    }
   }
 
   ngOnInit() {
-    console.log(typeof this.formObj);
   }
 
   save() {
-    if (this.formObj.name.match('[А-Яа-яёЁЇїІіЄєҐґ]{2,15}$') && this.formObj.type.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}$')
-      && this.formObj.description.match('[а-яА-А-Яа-яёЁЇїІіЄєҐґ -/0-9]{3,15}$')) {
+    if (this.formObj.name.match('[А-Яа-яёЁЇїІіЄєҐґ]{2,15}$')
+      && this.formObj.type !== null && this.formObj.picture !== null && this.formObj.price !== null && this.formObj.weight !== null) {
+      this.service.addDish(this.formObj).subscribe((res) => {
+        if (res === 'OK') {
+          this.notification(true);
+        } else {
+          this.notification(false);
+        }
+      });
+      this.savePicture();
+      this.notification(true);
+    } else {
+      this.notification(false);
     }
-    this.service.addDish(this.formObj).subscribe((res) => {
-      if (res === 'OK') {
-        this.correct.nativeElement.style.display = 'block';
-        setTimeout(() => {
-          this.correct.nativeElement.style.display = 'none';
-        }, 3000);
-      } else {
-        this.error.nativeElement.style.display = 'block';
-        setTimeout(() => {
-          this.error.nativeElement.style.display = 'none';
-        }, 3000);
-      }
-    });
-    this.savePicture();
+  }
+
+  notification(isCurrect) {
+    if (isCurrect) {
+      this.correct.nativeElement.style.display = 'block';
+      setTimeout(() => {
+        this.correct.nativeElement.style.display = 'none';
+      }, 3000);
+    } else {
+      this.error.nativeElement.style.display = 'block';
+      setTimeout(() => {
+        this.error.nativeElement.style.display = 'none';
+      }, 3000);
+    }
   }
 
   savePicture() {
