@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="selects">
+ <label>Сортувати за :&nbsp;</label> <select (change)="sort($event.target.value)" required name="sort">
+    <option value="date-new">Спочатку новіші</option>
+    <option value="date-old">Спочатку старіші</option>
+    <option value="name">Ім'я,Прізвище</option>
+  </select>
+  <label>Фільтр :&nbsp;</label> <select #select (change)="filter($event.target.value)" required name="filter">
+  <option value="All">Усі</option>
+  <option value="Done">Виконані</option>
+  <option value="Non-Done">Не Виконані</option>
+</select>
+  </div>
+
+  <table>
+    <tr>
+      <th>Id Замовлення</th>
+      <th>Дата,Час</th>
+      <th>Ім'я,Прізвище користувача</th>
+      <th>Адреса</th>
+      <th>Номер Телефону</th>
+      <th>Замовлення</th>
+      <th>Виконано</th>
+    </tr>
+    <tr *ngFor="let order of filtredOrders">
+      <td>{{order.id}}</td>
+      <td>{{order.date| date:'y-MM-dd hh:mm'}}</td>
+      <td>{{order.name + ' ' + order.surname}}</td>
+      <td>{{order.address}}</td>
+      <td>{{order.phoneNumber}}</td>
+      <td><p *ngFor="let food of order.foods">{{food.name + ' (X' +  food.quantity + ')'}}</p></td>
+      <td style="width: 10px"><input class="checkbox" #checkbox (click)="Check(order,notify)"  [checked]="order.done" type="checkbox"></td>
+    <h1 #notify style="display: none; color: green; position: absolute">Виконано!</h1>
+    </tr>
+  </table>
+</div>

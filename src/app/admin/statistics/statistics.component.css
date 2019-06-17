@@ -1,0 +1,36 @@
+.container {
+  min-height: 350px;
+}
+
+table {
+  margin: 0px auto 40px;
+  border: 1px;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+td {
+  border: 1px solid black;
+}
+.selects{
+ display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+select{
+  margin-right: 20px;
+}
+label{
+  font-size: 16px;
+  color: black;
+}
+.checkbox:checked{
+  pointer-events: none;
+}
+
+
