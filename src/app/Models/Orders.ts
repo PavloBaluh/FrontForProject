@@ -11,6 +11,8 @@ export class Orders {
     public phoneNumber: string = '',
     public sum = 0.0,
     public foods: Food[] = [],
+    public done: boolean,
   ) {
   }
 }
+

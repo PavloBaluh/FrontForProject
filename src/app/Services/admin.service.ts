@@ -48,4 +48,14 @@ export class AdminService {
     return this.http.get<Orders[]>(this.apiUrl + 'getOrders', {headers});
   }
 
+  sortOrders(sort): Observable<Orders[]> {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get<Orders[]>(this.apiUrl + 'getSortedOrders/' + sort, {headers});
+  }
+
+  ApplyOrder(order) {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get(this.apiUrl + 'ApplyOrder/' + order.id, {headers, responseType: 'text'});
+  }
+
 }
