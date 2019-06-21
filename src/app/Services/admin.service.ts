@@ -58,4 +58,10 @@ export class AdminService {
     return this.http.get(this.apiUrl + 'ApplyOrder/' + order.id, {headers, responseType: 'text'});
   }
 
+  deleteOrder(order) {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get(this.apiUrl + 'deleteOrder' + order.id, {headers, responseType: 'text'});
+  }
+
+
 }

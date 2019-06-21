@@ -1,5 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AdminService} from '../../Services/admin.service';
+import {Router} from '@angular/router';
+import {MainService} from '../../Services/main.service';
+import {User} from '../../Models/User';
 
 @Component({
   selector: 'app-delete-item',
@@ -12,7 +15,17 @@ export class DeleteItemComponent implements OnInit {
   formObj = {
     name: '',
   }
-  constructor(private service: AdminService) {
+  constructor(private router: Router, private service: AdminService, private service02: MainService) {
+    const a: User = this.service02.getDecodedAccessToken();
+    if (a !== null) {
+      service02.getPermissions().subscribe((res) => {
+        if (res !== 'ROLE_ADMIN' || res == null) {
+          this.router.navigate(['']);
+        }
+      });
+    } else {
+      this.router.navigate(['']);
+    }
   }
 
   ngOnInit() {

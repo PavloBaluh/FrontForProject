@@ -33,4 +33,14 @@ label{
   pointer-events: none;
 }
 
+.cancel{
+  display: table-cell;
+  vertical-align: inherit;
+  color: red;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
 

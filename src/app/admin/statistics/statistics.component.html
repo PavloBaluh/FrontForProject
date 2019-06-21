@@ -15,23 +15,30 @@
 
   <table>
     <tr>
+      <th></th>
       <th>Id Замовлення</th>
       <th>Дата,Час</th>
       <th>Ім'я,Прізвище користувача</th>
       <th>Адреса</th>
       <th>Номер Телефону</th>
       <th>Замовлення</th>
+      <th>Сумма Замовлення</th>
+      <th>Сумма з бонусами</th>
       <th>Виконано</th>
+      <th></th>
     </tr>
     <tr *ngFor="let order of filtredOrders">
+      <div (click)="deleteFromBasket(order)" class="cancel">X</div>
       <td>{{order.id}}</td>
       <td>{{order.date| date:'y-MM-dd hh:mm'}}</td>
       <td>{{order.name + ' ' + order.surname}}</td>
       <td>{{order.address}}</td>
       <td>{{order.phoneNumber}}</td>
       <td><p *ngFor="let food of order.foods">{{food.name + ' (X' +  food.quantity + ')'}}</p></td>
+      <td>{{getAllSum(order.foods)}}</td>
+      <td>{{order.sum}}</td>
       <td style="width: 10px"><input class="checkbox" #checkbox (click)="Check(order,notify)"  [checked]="order.done" type="checkbox"></td>
-    <h1 #notify style="display: none; color: green; position: absolute">Виконано!</h1>
+      <h1 #notify style=" margin-left: 5px; display: none; color: green; position: absolute">Виконано!</h1>
     </tr>
   </table>
 </div>

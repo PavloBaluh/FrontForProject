@@ -2,6 +2,9 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AdminService} from '../../Services/admin.service';
 import {Orders} from '../../Models/Orders';
 import {Food} from '../../Models/Food';
+import {Router} from '@angular/router';
+import {MainService} from '../../Services/main.service';
+import {User} from '../../Models/User';
 
 @Component({
   selector: 'app-statistics',
@@ -15,7 +18,17 @@ export class StatisticsComponent implements OnInit {
   orders: Orders[];
   filtredOrders: Orders[];
 
-  constructor(private service: AdminService) {
+  constructor(private router: Router, private service: AdminService, private service02: MainService) {
+    const a: User = this.service02.getDecodedAccessToken();
+    if (a !== null) {
+      service02.getPermissions().subscribe((res) => {
+        if (res !== 'ROLE_ADMIN' || res == null) {
+          this.router.navigate(['']);
+        }
+      });
+    } else {
+      this.router.navigate(['']);
+    }
   }
 
   ngOnInit() {
@@ -100,6 +113,22 @@ export class StatisticsComponent implements OnInit {
         setTimeout(() => {
           notify.style.display = 'none';
         }, 3000);
+      }
+    });
+  }
+
+  getAllSum(foods: Food[]) {
+    let sum = 0;
+    foods.forEach((food) => {
+      let quantity = food.quantity;
+      sum += (food.price * quantity);
+    });
+    return sum;
+  }
+
+  deleteFromBasket(order: any) {
+    this.service.deleteOrder(order).subscribe((res) => {
+      if (res === 'OK') {
       }
     });
   }
