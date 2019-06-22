@@ -24,12 +24,19 @@ export class MainService {
   private emitChangeSourcePicture = new Subject<any>();
   changeEmittedPicture$ = this.emitChangeSourcePicture.asObservable();
 
+
+  private emitChangeSourcePermission = new Subject<any>();
+  changeEmittedPermission$ = this.emitChangeSourcePermission.asObservable();
+
   emitChange(name: string) {
     this.emitChangeSource.next(name);
   }
 
   emitChangePicture(name: string) {
     this.emitChangeSourcePicture.next(this.sanitizer.bypassSecurityTrustUrl(this.imageType + name));
+  }
+  emitChangePermission(permission: string) {
+    this.emitChangeSourcePermission.next(permission);
   }
 
   getDecodedAccessToken(): User {

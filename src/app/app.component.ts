@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   userImg = '../assets/man_user.png';
   user: string;
   dis = true;
+  profile = 'profile';
 
   constructor(private service: MainService, private Activatedroute: ActivatedRoute) {
   }
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
     if (a !== null) {
       this.user = a.sub;
       this.dis = false;
+      this.checkPermissions();
     } else {
       this.dis = true;
       this.user = null;
@@ -56,10 +58,27 @@ export class AppComponent implements OnInit {
         this.userImg = data;
       }
     });
+    this.service.changeEmittedPermission$.subscribe((data) => {
+      if (data === 'ROLE_USER') {
+        this.profile = 'profile';
+      }
+      if (data === 'ROLE_ADMIN') {
+        this.profile = 'adminMain/addItem';
+      }
+    });
+
   }
 
   logout() {
     localStorage.clear();
     this.ngOnInit();
+  }
+
+  checkPermissions() {
+    this.service.getPermissions().subscribe((res) => {
+      if (res === 'ROLE_ADMIN') {
+        this.profile = 'adminMain/addItem';
+      }
+    });
   }
 }

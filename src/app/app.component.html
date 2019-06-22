@@ -31,7 +31,7 @@
             <h1 *ngIf="dis"routerLink="login">Увійти</h1>
             <h1 *ngIf="dis">	&nbsp;|	&nbsp;</h1>
             <p *ngIf="dis" routerLink="register">Зареєструватись	</p>
-            <p routerLink="profile" *ngIf="!dis">{{user}}</p>
+            <p routerLink="{{profile}}" *ngIf="!dis">{{user}}</p>
             <img [ngClass]="[dis ? 'disabled' : 'enabled']" style="outline: none;width: 40px;height: 40px;border: 3px #333333 solid;border-radius: 100px;" routerLink="profile" [src]="userImg">
           </div>
         </div>

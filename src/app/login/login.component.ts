@@ -42,9 +42,11 @@ export class LoginComponent {
         });
         this.service.getPermissions().subscribe((res2) => {
           if (res2 === 'ROLE_USER') {
+            this.service.emitChangePermission('ROLE_USER');
             this.router.navigate(['']);
           } else {
             if (res2 === 'ROLE_ADMIN') {
+              this.service.emitChangePermission('ROLE_ADMIN');
               this.router.navigate(['adminMain/addItem']);
             }
           }

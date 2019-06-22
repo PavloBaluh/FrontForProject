@@ -98,7 +98,7 @@ export class BasketComponent implements OnInit {
 
   makeOrder() {
     if (this.formObj.name.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}$') && this.formObj.surname.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}$')
-      && this.formObj.address.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}\\s?[a-zA-Z0-9- ]{1,7}') && this.formObj.phoneNumber.match('[\\(]?0[0-9]{2}[\\)]{0,1}\\s?\\d{3}[-]{0,1}\\d{2}[-]{0,1}\\d{2}')) {
+      && this.formObj.address.match('[А-Яа-яёЁЇїІіЄєҐґ]{3,15}\\s?[a-zA-Z0-9- ]{1,7}') && this.formObj.phoneNumber.match('3?8?[\\(]?0[0-9]{2}[\\)]{0,1}\\s?\\d{3}[-]{0,1}\\d{2}[-]{0,1}\\d{2}')) {
       this.formObj.sum = this.totalWithBonus;
       this.formObj.date = new Date();
       this.formObj.bonus = this.totalWithBonus / 10;

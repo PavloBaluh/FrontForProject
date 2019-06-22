@@ -40,7 +40,6 @@ export class StatisticsComponent implements OnInit {
       }
       this.filtredOrders = this.orders;
     });
-    console.log(this.filtredOrders);
   }
 
   sort(sort) {
@@ -129,6 +128,7 @@ export class StatisticsComponent implements OnInit {
   deleteFromBasket(order: any) {
     this.service.deleteOrder(order).subscribe((res) => {
       if (res === 'OK') {
+       this.ngOnInit();
       }
     });
   }
