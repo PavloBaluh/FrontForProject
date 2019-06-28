@@ -17,7 +17,7 @@ import {Ng2CarouselamosModule} from 'ng2-carouselamos';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HistoryComponent} from './history/history.component';
 import {AdminModule} from './admin/admin.module';
-
+import { AgmCoreModule } from '@agm/core';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -53,6 +53,11 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     AdminModule,
+    AgmCoreModule.forRoot(
+      {
+        apiKey: 'AIzaSyAorr5m3LvzDWKwI5l3eefa43PiP1MRiiE'
+      }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

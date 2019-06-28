@@ -3,10 +3,10 @@
     <label>Назва</label>
     <input [(ngModel)]="formObj.name"  name="name" id="name" class="menu" required>
     <div class="img-container">
-      <img #imgs style="height: 150px; width: 200px;  border-radius: 10px 10px 0 0" [src]="img">
+      <img #img style="height: 150px; width: 200px;  border-radius: 10px 10px 0 0">
       <div id="file-upload">
         <label>
-          <input ngModel (change)="InputFile($event.target.files, imgs)" type="file" name="file" id="uploade-file">
+          <input ngModel (change)="InputFile($event.target.files, img)" type="file" name="file" id="uploade-file">
           <span>Виберіть Файл</span>
         </label>
       </div>

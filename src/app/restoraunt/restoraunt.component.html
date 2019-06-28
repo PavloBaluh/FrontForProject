@@ -1,74 +1,75 @@
 <div style="width: 100%;background-color:wheat; height: 70px">
-<div class="stckedcont" style="position: relative; top: 20px;">
-  <div class="container1">
-    <div class="secondmenu">
-      <ul>
-        <li (click)="getByType('pizza')" class="active"><a><i class="icon-novelty"></i>Піцци</a></li>
-        <li (click)="getByType('sushi')" class=""><a><i class="icon-breakfast"></i>Суші</a></li>
-        <li (click)="getByType('salad')" class=""><a><i class="icon-salad"></i>Салати</a></li>
-        <li (click)="getByType('soup')" class=""><a><i class="icon-soup"></i>Супи</a></li>
-        <li (click)="getByType('drinks')" class=""><a><i class="icon-main_dish"></i>Напої</a></li>
-        <li (click)="getByType('desert')"><a><i class="icon-drink"></i>Десерты</a></li>
-      </ul>
+  <div class="stckedcont" style="position: relative; top: 20px;">
+    <div class="container1">
+      <div class="secondmenu">
+        <ul>
+          <li (click)="getByType('pizza')" class="active"><a><i class="icon-novelty"></i>Піцци</a></li>
+          <li (click)="getByType('sushi')" class=""><a><i class="icon-breakfast"></i>Суші</a></li>
+          <li (click)="getByType('salad')" class=""><a><i class="icon-salad"></i>Салати</a></li>
+          <li (click)="getByType('soup')" class=""><a><i class="icon-soup"></i>Супи</a></li>
+          <li (click)="getByType('drinks')" class=""><a><i class="icon-main_dish"></i>Напої</a></li>
+          <li (click)="getByType('desert')"><a><i class="icon-drink"></i>Десерты</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 
 <div #notification style="display: none" class="demo-wrapper">
-    <div #text  class="notification-text"></div>
+  <div #text class="notification-text"></div>
 </div>
 
 
-
-<div class="dish-container">
-  <div class="row">
-    <div id="content" class="col">
-      <h1>Меню</h1>
-      <ul>
-        <li class="col-2" *ngFor="let food of foods">
-          <div class="dish">
-            <div class="dish-main">
-              <div class="dish-main-row">
-                <div class="header-dish">
-                  <a [routerLink]="food.name" [queryParams]="food">{{food.name}}</a>
-                </div>
-                <div class="img-container">
-                  <img class="logo" [routerLink]="food.name" [queryParams]="food" [alt]="food.picture"
-                       [src]="findSrc(food.picture)">
-                </div>
-                <div class="order-container">
-                  <div class="f1">
-                    <div class="price-box">
-                      {{food.price}}
-                      <span class="grn">₴</span>
-                    </div>
+<div>
+  <div class=" dish-container">
+<div class="row">
+  <div id="content" class="col">
+    <h1>Меню</h1>
+    <ul>
+      <li class="col-2" *ngFor="let food of foods">
+        <div class="dish">
+          <div class="dish-main">
+            <div class="dish-main-row">
+              <div class="header-dish">
+                <a [routerLink]="food.name" [queryParams]="food">{{food.name}}</a>
+              </div>
+              <div class="img-container">
+                <img class="logo" [routerLink]="food.name" [queryParams]="food" [alt]="food.picture"
+                     [src]="findSrc(food.picture)">
+              </div>
+              <div class="order-container">
+                <div class="f1">
+                  <div class="price-box">
+                    {{food.price}}
+                    <span class="grn">₴</span>
                   </div>
-                  <div class="price-box-control">
-                    <div class="item-quantity">
-                      <div class="item-quantity-minus" (click)="change_quantity(true,food)">-</div>
-                      <input class="item-quantity-input" disabled type="text" [value]="food.quantity">
-                      <div class="item-quantity-minus" (click)="change_quantity(false,food)">+</div>
-                    </div>
+                </div>
+                <div class="price-box-control">
+                  <div class="item-quantity">
+                    <div class="item-quantity-minus" (click)="change_quantity(true,food)">-</div>
+                    <input class="item-quantity-input" disabled type="text" [value]="food.quantity">
+                    <div class="item-quantity-minus" (click)="change_quantity(false,food)">+</div>
                   </div>
-                  <div class="basket-box">
-                    <div class="basket">
-                      <a (click)="Inbasket(food)">
+                </div>
+                <div class="basket-box">
+                  <div class="basket">
+                    <a (click)="Inbasket(food)">
                 <span class="buy">
                   В корзину
                 </span>
-                      </a>
-                    </div>
+                    </a>
                   </div>
-
                 </div>
 
               </div>
+
             </div>
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
   </div>
+</div>
+</div>
 </div>

@@ -2,7 +2,6 @@ import {Component, ElementRef, HostListener, OnInit, ViewChild,} from '@angular/
 import {element} from 'protractor';
 import {MainService} from '../Services/main.service';
 
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -19,6 +18,15 @@ export class MainComponent implements OnInit {
     '../../assets/slider/gallery07.jpg',
   ];
   current = 0;
+  lat = 	49.838300;
+  lng =   24.023200;
+  pass = [
+    {lat: 25.774, lng: -80.190},
+    {lat: 18.466, lng: -66.118},
+    {lat: 32.321, lng: -64.757},
+    {lat: 25.774, lng: -80.190}
+  ];
+
   @ViewChild('slide1') slide1: ElementRef;
   @ViewChild('slide2') slide2: ElementRef;
   @ViewChild('slide3') slide3: ElementRef;
@@ -66,6 +74,5 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.startSlide();
   }
-
 
 }

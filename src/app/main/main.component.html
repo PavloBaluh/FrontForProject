@@ -27,3 +27,104 @@
   <div (click)="slideRight()" id="arrow-right" class="arrow"></div>
 </div>
 </div>
+<div class="how-it-works">
+  <div class="container">
+    <h2>Як це працює</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="how-it-works__item">
+          <div class="how-it-works__title">Виберіть страви з&nbsp;меню</div>
+          <p>Виберіть страви які сподобалися&nbsp;з нашого меню. Кожного тижня ми&nbsp;додаємо щось новенькое.</p>
+        </div><!-- how-it-works__item -->
+      </div><!-- col -->
+      <div class="col-md-4">
+        <div class="how-it-works__item">
+          <div class="how-it-works__title">Ми приготуєм і&nbsp;доставим</div>
+          <p>Відомі шеф-кухарі приготують страви з&nbsp;свіжих продуктів. Безкоштовна доставка в&nbsp;зручний час.</p>
+        </div><!-- how-it-works__item -->
+      </div><!-- col -->
+      <div class="col-md-4">
+        <div class="how-it-works__item">
+          <div class="how-it-works__title">Розігрійте і&nbsp;насолоджуйтесь</div>
+          <p>Ваш обід або сніданок буде готовий на &nbsp;протязі 2&nbsp;хвилин. Без походу в&nbsp;магазин, приготування і&nbsp;миття посуди.</p>
+        </div><!-- how-it-works__item -->
+      </div><!-- col -->
+    </div><!-- row -->
+  </div><!-- container -->
+  </div>
+<div class="map">
+  <div style="width: 100%; align-items: center">
+  <h1 style="text-align: center; margin-top: 100px; font-size: 20px; color: black" >Доставка по  Львову і облісті</h1>
+    <div>
+   <ol type="">
+     <li>- Доставка безкоштовна</li>
+     <li>- Доставка від 50 грн.</li>
+   </ol>
+    </div>
+  </div>
+<agm-map style="margin-right: 20px" [latitude] = "lat" [longitude] = "lng" [zoom] = 12>
+  <agm-marker [latitude]="lat" [longitude]="lng" [label]="'Ми'">
+  </agm-marker>
+  <agm-circle [latitude]="lat" [longitude]="lng"
+              [radius]="5000"
+              [fillColor]="'green'"
+              [circleDraggable]="false"
+              [editable]="false"
+              [zIndex]=1000>
+
+  </agm-circle>
+  <agm-circle [latitude]="lat" [longitude]="lng"
+              [radius]="7200"
+              [fillColor]="'red'"
+              [circleDraggable]="false"
+              [editable]="false"
+              [zIndex]=1>
+  </agm-circle>
+  <!--<agm-polygon [paths]="pass">-->
+  <!--</agm-polygon>-->
+</agm-map>
+</div>
+<div class="why-it">
+  <div class="container">
+    <h2>Чому це зручно і&nbsp;вигідно</h2>
+    <div class="row row-eq-height">
+      <div class="col-md-4 why-it__col">
+        <div class="why-it__item">
+          <div class="why-it__title">Єкономія бюджету</div>
+          <p>Ми&nbsp;куплємо продукти за&nbsp;оптовими цінами&nbsp;готуємо на&nbsp;автоматизованому виробництві. Тому наші готові страви коштують не&nbsp;дорожче, чим продукти в&nbsp;магазині.</p>
+        </div><!-- why-it__item -->
+      </div><!-- col -->
+      <div class="col-md-4 why-it__col">
+        <div class="why-it__item">
+          <div class="why-it__title">Незвичайний смак</div>
+          <p>Ми&nbsp;куплємо продукти за&nbsp;оптовими цінами&nbsp;готуємо на&nbsp;автоматизованому виробництві. Тому наші готові страви коштують не&nbsp;дорожче, чим продукти в&nbsp;магазині.</p>
+        </div><!-- why-it__item -->
+      </div><!-- col -->
+      <div class="col-md-4 why-it__col">
+        <div class="why-it__item">
+          <div class="why-it__title">Найсвіжіші Продукти</div>
+          <p>Ми&nbsp;куплємо продукти за&nbsp;оптовими цінами&nbsp;готуємо на&nbsp;автоматизованому виробництві. Тому наші готові страви коштують не&nbsp;дорожче, чим продукти в&nbsp;магазині.</p>
+        </div><!-- why-it__item -->
+      </div><!-- col -->
+      <div class="col-md-4 why-it__col">
+        <div class="why-it__item">
+          <div class="why-it__title">Разноманітне меню</div>
+          <p>Ми&nbsp;куплємо продукти за&nbsp;оптовими цінами&nbsp;готуємо на&nbsp;автоматизованому виробництві. Тому наші готові страви коштують не&nbsp;дорожче, чим продукти в&nbsp;магазині.</p>
+        </div><!-- why-it__item -->
+      </div><!-- col -->
+      <div class="col-md-4 why-it__col">
+        <div class="why-it__item">
+          <div class="why-it__title">Экономія<br/>часу</div>
+          <p>Ми&nbsp;куплємо продукти за&nbsp;оптовими цінами&nbsp;готуємо на&nbsp;автоматизованому виробництві. Тому наші готові страви коштують не&nbsp;дорожче, чим продукти в&nbsp;магазині.</p>
+        </div><!-- why-it__item -->
+      </div><!-- col -->
+      <div class="col-md-4 why-it__col">
+        <div class="why-it__item">
+          <div class="why-it__title">Зручна доставка</div>
+          <p>Ми&nbsp;куплємо продукти за&nbsp;оптовими цінами&nbsp;готуємо на&nbsp;автоматизованому виробництві. Тому наші готові страви коштують не&nbsp;дорожче, чим продукти в&nbsp;магазині.</p>
+        </div><!-- why-it__item -->
+      </div><!-- col -->
+    </div><!-- row -->
+  </div><!-- container -->
+  <div id="map"></div>
+</div>
