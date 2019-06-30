@@ -19,6 +19,8 @@
 
 }
 .error{
+  text-align: center;
+  position: absolute;
   margin-top: 20px;
   color: red;
   font-size: 15px;

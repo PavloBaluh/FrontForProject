@@ -54,13 +54,17 @@
   </div>
 <div class="map">
   <div style="width: 100%; align-items: center">
-  <h1 style="text-align: center; margin-top: 100px; font-size: 20px; color: black" >Доставка по  Львову і облісті</h1>
-    <div>
-   <ol type="">
-     <li>- Доставка безкоштовна</li>
-     <li>- Доставка від 50 грн.</li>
-   </ol>
+  <h1 style="text-align: center; margin-top: 50px; font-size: 30px; color: black" >Доставка по  Львову та облісті</h1>
+
+    <div class="col">
+      <h1 class="color"></h1>
+      <h1 style="font-size: 20px">&nbsp; - Доставка безкоштовна</h1>
     </div>
+    <div class="col">
+      <h1 class="color" style="background-color: red;"></h1>
+      <h1 style="font-size: 20px">&nbsp; - Доставка від 50 гривень</h1>
+    </div>
+
   </div>
 <agm-map style="margin-right: 20px" [latitude] = "lat" [longitude] = "lng" [zoom] = 12>
   <agm-marker [latitude]="lat" [longitude]="lng" [label]="'Ми'">

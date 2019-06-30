@@ -35,6 +35,7 @@ export class MainService {
   emitChangePicture(name: string) {
     this.emitChangeSourcePicture.next(this.sanitizer.bypassSecurityTrustUrl(this.imageType + name));
   }
+
   emitChangePermission(permission: string) {
     this.emitChangeSourcePermission.next(permission);
   }
@@ -93,6 +94,15 @@ export class MainService {
 
     });
     return this.http.post(this.apiUrl + 'addFood', {}, {headers});
+  }
+
+  replayFood(foods: Food[]) {
+    const arr = [];
+    for (const food of foods) {
+      arr.push(food.name);
+    }
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.post(this.apiUrl + 'repeatOrder/' + arr, {}, {headers});
   }
 
   deleteFood(food: Food) {

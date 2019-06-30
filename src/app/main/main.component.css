@@ -99,14 +99,14 @@ body,
 .how-it-works {
   text-align: center;
   padding: 60px 0 100px;
-  margin-bottom: 200px;
+  margin-bottom: 250px;
 
 }
 .why-it {
   text-align: center;
   padding: 60px 0 40px;
   margin-top: 30px;
-  margin-bottom: 400px;
+  margin-bottom: 150px;
 }
 .how-it-works__item {
   padding: 0 30px;
@@ -164,12 +164,15 @@ h2 {
 }
 .color{
   background-color:green;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 50px;
   color: green;
 }
 .col{
-  display: f;
+  margin-left: 100px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
 }
 @media (min-width: 996px){
   .container {

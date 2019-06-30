@@ -1,5 +1,4 @@
 .dish-container{
-  cursor: pointer;
   margin-top: 120px;
   margin-bottom: 50px;
   background: #fff;
@@ -46,13 +45,15 @@
   padding-left: 0;
   padding-right: 0;
   display: grid;
-  grid-template-columns:17% 17% 15% 38% 8%;
+  grid-template-columns:17% 17% 15% 39% 7%;
   grid-gap: 1%;
   align-items: center;
 }
 .order{
   width: 100%;
   align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .name{
@@ -110,11 +111,15 @@ hr {
   margin-bottom: 1rem;
   overflow: visible;
 }
-
-
-
-
-
+.repeatedly{
+  margin-right: -88px;
+  background-color: #88AB31;
+  color: snow;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-radius: 90px;
+}
 
 
 

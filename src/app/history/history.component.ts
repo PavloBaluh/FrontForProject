@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MainService} from '../Services/main.service';
 import {Orders} from '../Models/Orders';
 import {Food} from '../Models/Food';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -11,7 +12,7 @@ import {Food} from '../Models/Food';
 export class HistoryComponent implements OnInit {
   orders: Orders[];
 
-  constructor(private  service: MainService) {
+  constructor(private  service: MainService, private router: Router) {
   }
 
   ngOnInit() {
@@ -60,4 +61,16 @@ export class HistoryComponent implements OnInit {
     return res;
   }
 
+  repeatedly(order: Orders) {
+    const preperedFood = [];
+    for (const food of order.foods) {
+      for (let i = 0; i < food.quantity; i++) {
+        preperedFood.push(food);
+      }
+    }
+    this.service.replayFood(preperedFood).subscribe(() => {
+      this.router.navigate(['basket']);
+    });
+  }
 }
+

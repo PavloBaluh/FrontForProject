@@ -19,6 +19,7 @@
   </div>
 
   <div  class="order" *ngFor="let order of orders">
+    <div class="order">
     <div class="container">
       <div class="row row-secound">
         <div class="order-list col-md-12">
@@ -40,5 +41,9 @@
         </div>
       </div>
     </div>
+    <div (click)="repeatedly(order)" class="repeatedly">
+      <p style=" font-size: 12px; width: 88px; height: 30px">Повторнe<br>Замовлення</p>
+    </div>
   </div>
+</div>
 </div>
