@@ -63,5 +63,15 @@ export class AdminService {
     return this.http.get(this.apiUrl + 'deleteOrder/' + order.id, {headers, responseType: 'text'});
   }
 
+  getInfoForDiagram() {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get(this.apiUrl + 'getInfoForDiagram', {headers, responseType: 'json'});
+  }
+
+  GetYears() {
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get(this.apiUrl + 'getYears', {headers});
+  }
+
 
 }

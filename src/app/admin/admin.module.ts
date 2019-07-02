@@ -10,7 +10,6 @@ import {StatisticsComponent} from './statistics/statistics.component';
 import {GraphicsComponent} from './graphics/graphics.component';
 import {ChartsModule} from 'ng2-charts';
 
-
 const routes: Routes = [
   {
     path: 'adminMain', component: AdminMainComponent, children: [
@@ -23,12 +22,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AdminMainComponent, AddItemComponent, DeleteItemComponent, StatisticsComponent, GraphicsComponent],
+  declarations: [ AdminMainComponent, AddItemComponent, DeleteItemComponent, StatisticsComponent, GraphicsComponent],
   imports: [
+    ChartsModule,
     CommonModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    ChartsModule
   ],
   exports: [
     RouterModule
