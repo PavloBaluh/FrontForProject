@@ -1,0 +1,25 @@
+.type-selection{
+  display: flex;
+  flex-direction: column;
+}
+
+.canvass{
+  width: 50%;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+label{
+  font-size: 16px;
+  color: black;
+}
+.current-select{
+  position: absolute;
+  margin-top: 50px;
+  display: none;
+  width: 100%;
+  justify-content: center;
+}
+.select{
+  margin: 0 auto;
+}
+

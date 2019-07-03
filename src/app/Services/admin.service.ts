@@ -73,5 +73,9 @@ export class AdminService {
     return this.http.get(this.apiUrl + 'getYears', {headers});
   }
 
+  GetOrdersByMounce(){
+    const headers = new HttpHeaders({Authorization: localStorage.getItem('_key')});
+    return this.http.get(this.apiUrl + 'GetOrdersByMounce', {headers});
+  }
 
 }
