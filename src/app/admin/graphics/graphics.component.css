@@ -1,25 +1,34 @@
-.type-selection{
+.type-selection {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
-.canvass{
+.canvass {
   width: 50%;
   margin-top: 70px;
   margin-bottom: 50px;
 }
-label{
+
+label {
   font-size: 16px;
   color: black;
 }
-.current-select{
-  position: absolute;
-  margin-top: 50px;
-  display: none;
-  width: 100%;
-  justify-content: center;
-}
-.select{
-  margin: 0 auto;
+
+.current-select {
+  display: flex;
+  justify-content: space-between;
 }
 
+.switch{
+  display: flex;
+  justify-content: center;
+}
+input{
+  display: none;
+}
+.switch-labels{
+  cursor: pointer;
+  margin-right: 20px;
+}

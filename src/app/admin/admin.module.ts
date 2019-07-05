@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AppModule} from '../app.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AdminMainComponent} from './admin-main/admin-main.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AddItemComponent} from './add-item/add-item.component';
@@ -9,6 +9,7 @@ import {DeleteItemComponent} from './delete-item/delete-item.component';
 import {StatisticsComponent} from './statistics/statistics.component';
 import {GraphicsComponent} from './graphics/graphics.component';
 import {ChartsModule} from 'ng2-charts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ AdminMainComponent, AddItemComponent, DeleteItemComponent, StatisticsComponent, GraphicsComponent],
+  declarations: [AdminMainComponent, AddItemComponent, DeleteItemComponent, StatisticsComponent, GraphicsComponent],
   imports: [
     ChartsModule,
     CommonModule,
