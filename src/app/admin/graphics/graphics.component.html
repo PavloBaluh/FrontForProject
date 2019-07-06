@@ -1,14 +1,27 @@
-<div class="switch">
-  <input #type01  type="radio" checked>
-  <label class="switch-labels"  (click)="changeSwitch(1,$event.target)">Графік числа замовлень</label>
-
-  <input #type02  type="radio">
-  <label class="switch-labels"  (click)="changeSwitch(2,$event.target)">Графік відношення замовлень</label>
-
-  <input #type03   type="radio">
-  <label class="switch-labels"  (click)="changeSwitch(3,$event.target)">Year</label>
-</div>
 <div class="type-selection">
+
+  <div class="canvas-params">
+    <canvas  baseChart
+             [datasets]="ChartData"
+             [labels]="ChartLabels"
+             [options]="ChartOptions"
+             [legend]="ChartLegend"
+             [chartType]="ChartType">
+
+    </canvas>
+  </div>
+
+<div class="select-main">
+
+  <p>
+    <mat-button-toggle-group #group="matButtonToggleGroup" (click)="diagramType(group.value)" name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle checked value="orders-count">Кількість замовлень</mat-button-toggle>
+      <mat-button-toggle value="orders">Відношення замовлень</mat-button-toggle>
+    </mat-button-toggle-group>
+  </p>
+
+
+
   <div  class="select">
   <label>Кількість замовлень по :&nbsp;</label> <select #sort (change)="change($event.target.value)" required name="sort">
   <option value="quarter">Кварталах</option>
@@ -19,7 +32,8 @@
     <option *ngFor="let cur of current">{{cur}}</option>
   </select>
 </div>
-  <div  class="current-select">
+
+  <div  class="select">
     <label>Рік :&nbsp;</label><select #year (change)="changeYear($event.target.value)" required name="years">
     <option value="all">Всі</option>
     <option *ngFor="let year of years">{{year}}</option>
@@ -30,13 +44,4 @@
   </select>
   </div>
 </div>
-
-<div class="canvass">
-  <canvas  baseChart
-          [datasets]="ChartData"
-          [labels]="ChartLabels"
-          [options]="ChartOptions"
-          [legend]="ChartLegend"
-          [chartType]="ChartType"
-  ></canvas>
 </div>

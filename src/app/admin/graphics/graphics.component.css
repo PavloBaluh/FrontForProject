@@ -5,9 +5,8 @@
   margin-top: 20px;
 }
 
-.canvass {
-  width: 50%;
-  margin-top: 70px;
+.canvas-params {
+  width: 60%;
   margin-bottom: 50px;
 }
 
@@ -16,9 +15,10 @@ label {
   color: black;
 }
 
-.current-select {
-  display: flex;
-  justify-content: space-between;
+.select{
+  height: 30px;
+  margin-top: 50px;
+  margin-right: -20px;
 }
 
 .switch{

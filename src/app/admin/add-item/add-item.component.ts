@@ -10,8 +10,8 @@ import {User} from '../../Models/User';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  @ViewChild('correct') correct: ElementRef;
-  @ViewChild('error') error: ElementRef;
+  @ViewChild('correct', {static: false}) correct: ElementRef;
+  @ViewChild('error',  {static: false}) error: ElementRef;
   formObj = {
     name: '',
     type: '',

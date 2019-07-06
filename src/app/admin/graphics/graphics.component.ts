@@ -1,10 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Chart} from 'chart.js';
 import {AdminService} from '../../Services/admin.service';
-import {Orders} from '../../Models/Orders';
-import {applySourceSpanToExpressionIfNeeded} from '@angular/compiler/src/output/output_ast';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-graphics',
@@ -12,13 +8,10 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./graphics.component.css'],
 })
 export class GraphicsComponent implements OnInit {
-  @ViewChild('mounce') mounce: ElementRef;
-  @ViewChild('year') year: ElementRef;
-  @ViewChild('sort') sort: ElementRef;
-  @ViewChild('Chart') chart: ElementRef;
-  @ViewChild('type01') typee01: ElementRef;
-  @ViewChild('type02') typee02: ElementRef;
-  @ViewChild('type03') typee03: ElementRef;
+  @ViewChild('mounce', {static: false}) mounce: ElementRef;
+  @ViewChild('year', {static: false}) year: ElementRef;
+  @ViewChild('sort', {static: false}) sort: ElementRef;
+  @ViewChild('Chart', {static: false}) chart: ElementRef;
   mounceArr = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень',
     'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
   ordersArray = [
@@ -187,24 +180,22 @@ export class GraphicsComponent implements OnInit {
     }
   }
 
-  changeSwitch(number, event) {
-    event.style.color = 'green';
-    console.log(event);
-    console.log(this.typee01.nativeElement.checked);
-    if (number === 1) {
-      this.typee01.nativeElement.checked = true;
-      this.typee02.nativeElement.checked = false;
-      this.typee03.nativeElement.checked = false;
+  diagramType(value) {
+    if (value === 'orders-count') {
+      this.ngOnInit();
     }
-    if (number === 2) {
-      this.typee02.nativeElement.checked = true;
-      this.typee03.nativeElement.checked = false;
-      this.typee01.nativeElement.checked = false;
-    }
-    if (number === 3) {
-      this.typee03.nativeElement.checked = true;
-      this.typee01.nativeElement.checked = false;
-      this.typee02.nativeElement.checked = false;
+    if (value === 'orders') {
+      this.relationsDiagram();
     }
   }
+
+
+  relationsDiagram() {
+    this.ChartType = 'pie';
+    this.service.getForRelationsDiagram('quarter,1,all').subscribe((res) => {
+      console.log();
+    });
+  }
+
+
 }

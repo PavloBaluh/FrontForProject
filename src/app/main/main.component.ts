@@ -27,11 +27,11 @@ export class MainComponent implements OnInit {
     {lat: 25.774, lng: -80.190}
   ];
 
-  @ViewChild('slide1') slide1: ElementRef;
-  @ViewChild('slide2') slide2: ElementRef;
-  @ViewChild('slide3') slide3: ElementRef;
-  @ViewChild('slide4') slide4: ElementRef;
-  @ViewChild('slide5') slide5: ElementRef;
+  @ViewChild('slide1', {static: false}) slide1: ElementRef;
+  @ViewChild('slide2', {static: false}) slide2: ElementRef;
+  @ViewChild('slide3', {static: false}) slide3: ElementRef;
+  @ViewChild('slide4', {static: false}) slide4: ElementRef;
+  @ViewChild('slide5', {static: false}) slide5: ElementRef;
   sliderImages = [];
 
   constructor() {

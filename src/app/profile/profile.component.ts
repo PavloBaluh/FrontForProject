@@ -11,8 +11,8 @@ import {applySourceSpanToExpressionIfNeeded} from '@angular/compiler/src/output/
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  @ViewChild('correct') correct: ElementRef;
-  @ViewChild('error') error: ElementRef;
+  @ViewChild('correct', {static: false}) correct: ElementRef;
+  @ViewChild('error', {static: false}) error: ElementRef;
   private imageType = 'data:image/PNG;base64,';
   img: any;
 

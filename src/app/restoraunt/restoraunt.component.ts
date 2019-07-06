@@ -12,8 +12,8 @@ import {el} from '@angular/platform-browser/testing/src/browser_util';
 })
 export class RestorauntComponent implements OnInit {
   foods: Food[] = [];
-  @ViewChild('notification') notification: ElementRef;
-  @ViewChild('text') text: ElementRef;
+  @ViewChild('notification', {static: false}) notification: ElementRef;
+  @ViewChild('text', {static: false}) text: ElementRef;
   Img: any = '../../assets/restourant/';
 
   constructor(private service: MainService) {

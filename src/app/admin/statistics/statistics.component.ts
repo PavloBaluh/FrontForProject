@@ -12,8 +12,8 @@ import {User} from '../../Models/User';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
-  @ViewChild('select') select: ElementRef;
-  @ViewChild('checkbox') checkbox: ElementRef;
+  @ViewChild('select', {static: false}) select: ElementRef;
+  @ViewChild('checkbox', {static: false}) checkbox: ElementRef;
 
   orders: Orders[];
   filtredOrders: Orders[];

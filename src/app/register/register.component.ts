@@ -10,7 +10,7 @@ import {validate} from 'codelyzer/walkerFactory/walkerFn';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  @ViewChild('error') error: ElementRef;
+  @ViewChild('error', {static: false}) error: ElementRef;
   header = 'Зареєструватися';
   obj = {
     username: '',

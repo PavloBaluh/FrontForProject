@@ -10,6 +10,8 @@ import {StatisticsComponent} from './statistics/statistics.component';
 import {GraphicsComponent} from './graphics/graphics.component';
 import {ChartsModule} from 'ng2-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {BrowserModule} from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -25,6 +27,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [AdminMainComponent, AddItemComponent, DeleteItemComponent, StatisticsComponent, GraphicsComponent],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatButtonToggleModule,
     ChartsModule,
     CommonModule,
     FormsModule,

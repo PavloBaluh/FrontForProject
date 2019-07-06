@@ -11,8 +11,8 @@ import {el} from '@angular/platform-browser/testing/src/browser_util';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
-  @ViewChild('bonusrow1') bonusrow1: ElementRef;
-  @ViewChild('bonusrow2') bonusrow2: ElementRef;
+  @ViewChild('bonusrow1', {static: false}) bonusrow1: ElementRef;
+  @ViewChild('bonusrow2', {static: false}) bonusrow2: ElementRef;
   error = '';
   foods: Food[];
   isDisabled = false;
